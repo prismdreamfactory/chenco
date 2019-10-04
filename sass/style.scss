@@ -1,0 +1,30 @@
+/*
+Theme Name:     Chenco
+Description:    Chenco Website
+Author:         eric@prismdreamfactory.com
+Author URI:     prismdreamfactory.com
+Template:       generatepress
+Version:        0.1.0
+*/
+
+@import 'normalize';
+
+@import 'include-media';
+
+@import 'mixins';
+
+@import 'typography';
+
+@import 'home/mission';
+
+@import 'home/gallery';
+
+@import 'home/pricing';
+
+@import 'home/map';
+
+@import 'home/featured-products';
+
+@import 'home/newsletter';
+
+@import 'custom';
