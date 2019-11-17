@@ -49,7 +49,8 @@ function debounced(delay, fn) {
     const args = {
       zoom: 16,
       center: new google.maps.LatLng(0, 0),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false
     };
 
     // create map
@@ -94,19 +95,19 @@ function debounced(delay, fn) {
 
     // custom marker icons
     const icons = {
-      defaultIcon: {
-        url: `${rootUrl}/wp-content/uploads/2019/08/Pin.svg`
-      },
-      activeIcon: {
-        url: `${rootUrl}/wp-content/uploads/2019/08/Pin-active.svg`
-      }
+      // defaultIcon: {
+      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin.svg`
+      // },
+      // activeIcon: {
+      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin-active.svg`
+      // }
     };
 
     // create marker
     const marker = new google.maps.Marker({
       position: latlng,
-      map: map,
-      icon: icons.defaultIcon
+      map: map
+      // icon: icons.defaultIcon
     });
 
     // add to array
@@ -176,8 +177,11 @@ function debounced(delay, fn) {
   $(() => {
     // initialize functions
 
-    if ($('body').hasClass('home')) {
-      initSlider();
+    // if ($('body').hasClass('home')) {
+    // initSlider();
+    // }
+
+    if ($('#map').length) {
       newMap();
     }
 
