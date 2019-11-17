@@ -1,0 +1,47 @@
+body,
+p {
+  font-family: 'Domine', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 2;
+  margin-bottom: 1em;
+
+  @include media('≤tablet') {
+    line-height: 1.6;
+    font-size: 0.85rem;
+  }
+}
+
+a {
+  font-family: 'Maven Pro', sans-serif;
+  color: $yellow;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s ease;
+  }
+}
+
+h1 {
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+h2 {
+  font-family: 'Maven Pro', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+
+  @include media('≤tablet') {
+    .mission &,
+    .featured & {
+      font-size: 2rem;
+    }
+  }
+}
+
+h5,
+h6 {
+  margin-bottom: 0;
+}
