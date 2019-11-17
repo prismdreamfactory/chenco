@@ -1,11 +1,11 @@
 h1 {
-  font-family: 'ibmplex', serif;
+  font-family: 'Maven Pro', sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 h2 {
-  font-family: 'ibmplex', serif;
+  font-family: 'Maven Pro', sans-serif;
   font-weight: 700;
   font-style: italic;
 
@@ -36,10 +36,11 @@ h2 {
 
 body,
 p {
-  font-family: 'ibmplex', serif;
+  font-family: 'Maven Pro', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 2;
+  margin-bottom: 1em;
 
   @include media('≤tablet') {
     line-height: 1.6;
@@ -48,7 +49,7 @@ p {
 }
 
 a {
-  font-family: 'ibmplex', serif;
+  font-family: 'Maven Pro', sans-serif;
   color: $yellow;
 
   &:hover {
@@ -183,7 +184,6 @@ section {
     font-size: 6rem;
     color: $yellow;
     text-transform: uppercase;
-    margin: 1.5rem 0;
     line-height: 1;
 
     @include media('≤tablet') {
@@ -193,8 +193,6 @@ section {
 
   p {
     color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
 
     @include media('≤tablet') {
       font-size: 0.9rem;
