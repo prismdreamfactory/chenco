@@ -27,6 +27,9 @@
     color: rgba(255, 255, 255, 1);
   }
 }
+.map__tab.mod-active {
+  color: #fff;
+}
 
 .map__legend {
   position: absolute;
@@ -84,7 +87,8 @@
 }
 
 #map {
-  height: 700px;
+  min-height: 700px;
+  height: 80vh;
 
   @include media('<=tablet') {
     height: 700px;
@@ -115,5 +119,13 @@
 }
 
 .gm-fullscreen-control {
+  display: none;
+}
+@media only screen and (min-width: 980px) {
+  .gm-style-pbc {
+    opacity: 0 !important;
+  }
+}
+.gmnoprint {
   display: none;
 }

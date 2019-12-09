@@ -11,9 +11,9 @@
   <?php if (have_rows('gmaps')) : ?>
 
     <div class="map__tabs">
-      <div class="map__tab">Global</div>
-      <div class="map__tab">U.S. Properties</div>
-      <div class="map__tab">Asia Properties</div>
+      <div class="map__tab font--alt">Global</div>
+      <div class="map__tab font--alt active">U.S. Properties</div>
+      <div class="map__tab font--alt">Asia Properties</div>
     </div>
 
     <div class="map-wrapper">

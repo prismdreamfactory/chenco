@@ -30,19 +30,26 @@ function debounced(delay, fn) {
     });
   };
 
+  const loginModal = () => {
+    const $link = $('#menu-item-113 a');
+
+    $link.on('click', function(e) {
+      e.preventDefault();
+      this.blur();
+
+      html.modal();
+    });
+  };
+
   /*
    *  newMap
    *
    *  This function will render a Google Map onto the selected jQuery element
    *
-   *  @type	function
-   *  @date	8/11/2013
-   *  @since	4.3.0
-   *
    *  @return	n/a
    */
 
-  function newMap() {
+  function newMap(styles) {
     const $el = $('#map');
     const $markers = $el.find('.marker');
 
@@ -50,7 +57,10 @@ function debounced(delay, fn) {
       zoom: 16,
       center: new google.maps.LatLng(0, 0),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false
+      mapTypeControl: false,
+      streetViewControl: false,
+      // disableDefaultUI: true,
+      styles
     };
 
     // create map
@@ -67,6 +77,8 @@ function debounced(delay, fn) {
     // center map
     centerMap(map);
 
+    initLocationTabs(map);
+
     // return
     return map;
   }
@@ -75,10 +87,6 @@ function debounced(delay, fn) {
    *  addMarker
    *
    *  This function will add a marker to the selected Google Map
-   *
-   *  @type	function
-   *  @date	8/11/2013
-   *  @since	4.3.0
    *
    *  @param	$marker (jQuery element)
    *  @param	map (Google Map object)
@@ -141,10 +149,6 @@ function debounced(delay, fn) {
    *
    *  This function will center the map, showing all markers attached to this map
    *
-   *  @type	function
-   *  @date	8/11/2013
-   *  @since	4.3.0
-   *
    *  @param	map (Google Map object)
    *  @return	n/a
    */
@@ -173,16 +177,33 @@ function debounced(delay, fn) {
     }
   }
 
+  function initLocationTabs(map) {
+    const bounds = new google.maps.LatLngBounds();
+    const $tabs = $('.map__tab');
+
+    $tabs.each(function() {
+      $(this).on('click', () => {
+        $tabs.removeClass('mod-active');
+        $(this).addClass('mod-active');
+        map.setCenter(new google.maps.LatLng(45.141496, 205.588005));
+        map.setZoom(3);
+      });
+    });
+  }
+
   // on document ready
   $(() => {
     // initialize functions
+    loginModal();
 
     // if ($('body').hasClass('home')) {
     // initSlider();
     // }
 
     if ($('#map').length) {
-      newMap();
+      $.getJSON('/wp-content/themes/chenco/js/map-styles.json', json => {
+        newMap(json);
+      });
     }
 
     $('body, html').animate({ scrollTop: 0 }, 0);
