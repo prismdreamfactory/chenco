@@ -27,7 +27,7 @@ get_header(); ?>
          */
         do_action('generate_before_main_content'); ?>
 
-        <section class="mission">
+        <!-- <section class="mission">
             <div class="grid-container">
 
                 <div class="mission__heading">
@@ -37,21 +37,15 @@ get_header(); ?>
                 <div class="mission__description"><?php the_field('text'); ?></div>
 
             </div>
-        </section>
-
-        <?php get_template_part('partials/gallery'); ?>
-
-        <?php get_template_part('partials/pricing'); ?>
+        </section> -->
 
         <?php get_template_part('partials/map'); ?>
 
-        <?php get_template_part('partials/featured_products'); ?>
-
-        <section class="newsletter">
+        <!-- <section class="newsletter">
             <div class="grid-container">
                 <?= do_shortcode('[mc4wp_form id="49"]'); ?>
             </div>
-        </section>
+        </section> -->
 
 
         <?php
