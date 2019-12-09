@@ -49,7 +49,11 @@ function chenco_custom_copyright()
 }
 
 add_filter('generate_footer_widget_1_width', function () {
-  return '100';
+  return '25';
+});
+
+add_filter('generate_footer_widget_2_width', function () {
+  return '75';
 });
 
 /**
