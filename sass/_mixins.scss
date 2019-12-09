@@ -1,5 +1,12 @@
-$primary: #27343b;
-$yellow: #ffd100;
+$primary: #28343c; // dark blue
+$aegean: #25507b; //aegean blue
+$darkgrey: #898989;
+$lightgrey: #eaeaea;
+$blue: rgb(37, 79, 123);
+$orange: rgb(191, 144, 1);
+
+$serif: 'Domine', serif;
+$sans: 'Maven Pro', sans-serif;
 
 @mixin button {
   display: inline-block;

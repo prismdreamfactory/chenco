@@ -1,0 +1,29 @@
+.site-footer {
+  background: $lightgrey;
+}
+
+.site-info {
+  background: $lightgrey;
+}
+
+.copyright-bar {
+  color: $darkgrey;
+  font-family: $sans;
+}
+
+.footer-widgets {
+  background: transparent;
+  padding-bottom: 0 !important;
+}
+
+#menu-footer {
+  display: flex;
+  justify-content: space-evenly;
+
+  li {
+    a {
+      color: #333;
+      font-family: $serif;
+    }
+  }
+}

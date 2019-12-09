@@ -8,6 +8,7 @@
  * @package chenco
  */
 
+/* Enqueue scripts/styles */
 add_action('wp_enqueue_scripts', 'generatepress_parent_theme_enqueue_styles');
 
 /**
@@ -39,6 +40,17 @@ function generatepress_parent_theme_enqueue_styles()
 // {
 //   remove_action('generate_footer', 'generate_construct_footer');
 // }
+add_filter('generate_copyright', 'chenco_custom_copyright');
+function chenco_custom_copyright()
+{
+  ?>
+  © 2019 Chenco Holdings. All Rights Reserved.
+<?php
+}
+
+add_filter('generate_footer_widget_1_width', function () {
+  return '100';
+});
 
 /**
  * Load Google Maps API for ACF
@@ -48,3 +60,62 @@ function chenco_acf_init()
 {
   acf_update_setting('google_api_key', 'AIzaSyBMZLXZwNLw2ipOCmrNmQlJIoT4tfr_Hkg');
 }
+
+add_theme_support('customer-area.stylesheet');
+
+/**
+ * Custom navigation menu
+ */
+
+class Chenco_Walker extends Walker_Page
+{
+  function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0)
+  {
+    $css_class = array('page_item', 'page-item-' . $page->ID);
+    $button = '';
+
+    if (isset($args['pages_with_children'][$page->ID])) {
+      $css_class[] = 'menu-item-has-children';
+      $icon = generate_get_svg_icon('arrow');
+      $button = '<span role="presentation" class="dropdown-menu-toggle">' . $icon . '</span>';
+    }
+
+    if (!empty($current_page)) {
+      $_current_page = get_post($current_page);
+      if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
+        $css_class[] = 'current-menu-ancestor';
+      }
+      if ($page->ID == $current_page) {
+        $css_class[] = 'current-menu-item';
+      } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
+        $css_class[] = 'current-menu-parent';
+      }
+    } elseif ($page->ID == get_option('page_for_posts')) {
+      $css_class[] = 'current-menu-parent';
+    }
+
+    $css_classes = implode(' ', apply_filters('page_css_class', $css_class, $page, $depth, $args, $current_page));
+
+    $args['link_before'] = empty($args['link_before']) ? '' : $args['link_before'];
+    $args['link_after'] = empty($args['link_after']) ? '' : $args['link_after'];
+
+    $output .= sprintf(
+      '<li class="%s"><a href="%s">%s%s%s%s</a>',
+      $css_classes,
+      get_permalink($page->ID),
+      $args['link_before'],
+      apply_filters('the_title', $page->post_title, $page->ID),
+      $args['link_after'],
+      $button
+    );
+  }
+}
+
+
+// add_filter('wp_nav_menu_args', function ($args) {
+//   if ('primary' === $args['theme_location'] && class_exists('Chenco_Walker')) {
+//     $args['walker'] = new Chenco_Walker();
+//   }
+
+//   return $args;
+// });
