@@ -16,6 +16,17 @@
   padding-bottom: 0 !important;
 }
 
+.inside-footer-widgets {
+  display: flex;
+  align-items: center;
+}
+
+.footer-widget-1 {
+  img {
+    max-width: 150px !important;
+  }
+}
+
 #menu-footer {
   display: flex;
   justify-content: space-evenly;
