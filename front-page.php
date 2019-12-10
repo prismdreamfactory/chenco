@@ -7,10 +7,7 @@
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site will use a
  * different template.
- *
- * @package GeneratePress
  */
-
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
@@ -27,25 +24,21 @@ get_header(); ?>
          */
         do_action('generate_before_main_content'); ?>
 
-        <!-- <section class="mission">
-            <div class="grid-container">
-
-                <div class="mission__heading">
-                    <h2><?php the_field('heading'); ?></h2>
+        <div class="front">
+            <div class="front-top"></div>
+            <div class="front-mid-left">
+                <h3>Value-Based Investing</h3>
+                <span class="front-line"></span>
+                <h1>
+                    Over 29 years, we have enhanced our portfolio 
+                    value through proven asset management and 
+                    operational expertise
+                </h1>
+                <div>
+                    <a href="https://www.google.com">Value-Based Investing</a>
                 </div>
-
-                <div class="mission__description"><?php the_field('text'); ?></div>
-
             </div>
-        </section> -->
-
-        <?php get_template_part('partials/map'); ?>
-
-        <!-- <section class="newsletter">
-            <div class="grid-container">
-                <?= do_shortcode('[mc4wp_form id="49"]'); ?>
-            </div>
-        </section> -->
+        </div>
 
 
         <?php

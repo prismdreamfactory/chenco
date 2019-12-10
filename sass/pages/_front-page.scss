@@ -1,0 +1,41 @@
+.front {
+  display: grid;
+  min-height: 1500px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 36% 32% 32%;
+  grid-template-areas:
+    'top top top'
+    'mid-left mid-right mid-right'
+    'bot-left bot-left bot-right';
+}
+
+.front-top {
+  grid-area: top;
+  background-image: url('https://via.placeholder.com/1920x1080');
+}
+
+.front-mid-left {
+  grid-area: mid-left;
+  background: #28343c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5rem;
+
+  h1,
+  h3,
+  p,
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.front-line {
+  display: block;
+  max-width: 2.2rem;
+  border-bottom: 1px solid #fff;
+}
