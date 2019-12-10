@@ -110,7 +110,7 @@ get_header(); ?>
         <div class="tab-content" data-content="4">
           <section class="business__section">
             <div class="container">
-              <h1 class="heading alt">Our Businesses</h1>
+              <h1 class="heading alt center">Our Businesses</h1>
 
               <h2 class="firm__subheading">Real Estate Fund Management</h2>
               <p>With over 28 years of industry experience, we have access to nationwide real estate investments

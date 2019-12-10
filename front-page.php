@@ -9,7 +9,7 @@
  * different template.
  */
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -17,12 +17,12 @@ get_header(); ?>
 <div id="primary" <?php generate_do_element_classes('content'); ?>>
   <main id="main" <?php generate_do_element_classes('main'); ?>>
     <?php
-        /**
-         * generate_before_main_content hook.
-         *
-         * @since 0.1
-         */
-        do_action('generate_before_main_content'); ?>
+    /**
+     * generate_before_main_content hook.
+     *
+     * @since 0.1
+     */
+    do_action('generate_before_main_content'); ?>
 
     <div class="front">
       <div class="front-hero">
@@ -34,8 +34,7 @@ get_header(); ?>
       </div>
       <div class="front-summary">
         <div class="front-summary-text">
-          <h4>Value-Based Investing</h4>
-          <span class="front-summary-line"></span>
+          <h4 class="heading alt">Value-Based Investing</h4>
           <h1>
             Over 29 years, we have enhanced our portfolio
             value through proven asset management and
@@ -59,8 +58,7 @@ get_header(); ?>
       </div>
 
       <div class="front-news">
-        <h4>Corporate Releases</h4>
-        <span class="front-line"></span>
+        <h4 class="heading">Corporate Releases</h4>
         <div class="front-news-item">
           <p>March 22, 2019</p>
           <a href="https://www.google.com">Chenco Holdings Expands Into Korea Through Formation of CHK Partners Co.,
@@ -87,8 +85,7 @@ get_header(); ?>
 
       <div class="front-project-image"></div>
       <div class="front-project">
-        <h4>Project Profile</h4>
-        <span class="front-line"></span>
+        <h4 class="heading">Project Profile</h4>
         <h1>Reno Daybreak: Addressing the "Missing Middle" With A New, Inspired, And Attainable Master Planned
           Community.</h1>
         <a class="btn" href="https://www.google.com">Learn More</a>
@@ -97,13 +94,13 @@ get_header(); ?>
 
 
     <?php
-        /**
-         * generate_after_main_content hook.
-         *
-         * @since 0.1
-         */
-        do_action('generate_after_main_content');
-        ?>
+    /**
+     * generate_after_main_content hook.
+     *
+     * @since 0.1
+     */
+    do_action('generate_after_main_content');
+    ?>
   </main><!-- #main -->
 </div><!-- #primary -->
 

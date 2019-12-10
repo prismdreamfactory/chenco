@@ -33,6 +33,37 @@ body {
   background: transparent !important;
 }
 
+.heading {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 0;
+
+  &:after {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    border-bottom: 1px solid $body;
+    margin: 2rem 0;
+  }
+
+  &.alt {
+    &:after {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .navigation-branding .site-logo img {
   height: 80px;
   padding: 0;

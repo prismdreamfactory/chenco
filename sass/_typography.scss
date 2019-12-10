@@ -36,27 +36,3 @@ h1 {
 h2 {
   font-weight: 700;
 }
-
-.heading {
-  text-transform: uppercase;
-  font-size: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  &:after {
-    content: '';
-    width: 3rem;
-    height: 1px;
-    border-bottom: 1px solid $body;
-    margin: 2rem 0;
-  }
-
-  &.alt {
-    &:after {
-      border-bottom: 1px solid #fff;
-    }
-  }
-}
