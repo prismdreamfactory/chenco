@@ -1,5 +1,6 @@
 .grid-container {
   box-sizing: border-box;
+  max-width: 100% !important;
 
   .page-hero & {
     padding: 0 1.5rem;
@@ -16,6 +17,11 @@
       padding: 0 1.5rem;
     }
   }
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .navigation-branding .site-logo img {
