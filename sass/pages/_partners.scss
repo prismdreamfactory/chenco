@@ -1,0 +1,38 @@
+.partners {
+  .tab-content {
+    background: transparent;
+  }
+}
+
+.partners__section--top {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  grid-column-gap: 10%;
+}
+
+.operators {
+  background: $light;
+
+  .slick-list {
+    padding: 0 50px;
+    box-sizing: border-box;
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+  .slick-next {
+    right: 10px;
+  }
+}

@@ -14,7 +14,6 @@
   font-size: 1.25rem;
   width: 100%;
   opacity: 0.6;
-  // border-bottom: 1px solid $darkgrey;
   transition: 0.3s ease;
   padding-bottom: 1rem;
   position: relative;
@@ -40,6 +39,10 @@
   &:hover {
     cursor: pointer;
     opacity: 1;
+  }
+
+  .tabs--alt & {
+    border-bottom: 1px solid $darkgrey;
   }
 }
 

@@ -24,28 +24,34 @@ function debounced(delay, fn) {
   };
 
   const initSlider = () => {
-    $('.home-slick').slick({
-      dots: true,
-      arrows: true
-    });
+    if ($('.slick').length) {
+      $('.slick').slick({
+        dots: true,
+        arrows: true,
+        infinite: false,
+        slidesToShow: 3
+      });
+    }
   };
 
   const initTabs = () => {
-    $('[data-tab]').on('click', function(e) {
-      $(this)
-        .addClass('active')
-        .siblings('[data-tab]')
-        .removeClass('active');
-      $('.tab-container')
-        .find('[data-content=' + $(this).data('tab') + ']')
-        .addClass('active')
-        .siblings('[data-content]')
-        .removeClass('active');
+    if ($('.tabs').length) {
+      $('[data-tab]').on('click', function(e) {
+        $(this)
+          .addClass('active')
+          .siblings('[data-tab]')
+          .removeClass('active');
+        $('.tab-container')
+          .find('[data-content=' + $(this).data('tab') + ']')
+          .addClass('active')
+          .siblings('[data-content]')
+          .removeClass('active');
 
-      e.preventDefault();
-    });
+        e.preventDefault();
+      });
+    }
 
-    $('[data-tab=4]').trigger('click');
+    // $('[data-tab=4]').trigger('click');
   };
 
   const loginModal = () => {
@@ -208,6 +214,7 @@ function debounced(delay, fn) {
     // initialize functions
     loginModal();
     initTabs();
+    initSlider();
 
     // if ($('body').hasClass('home')) {
     // initSlider();
