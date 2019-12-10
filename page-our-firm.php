@@ -51,30 +51,28 @@ get_header(); ?>
       <div class="tab-container">
         <div class="tab-content active" data-content="1">
           <div class="container">
-            <section class="firm__section--top">
-              <div class="">
-                <h1 class="firm__heading">Our Vision</h1>
+            <section class="firm__section">
+              <div class="firm__section--top">
+                <div class="">
+                  <h1 class="firm__heading">Our Vision</h1>
 
-                <h2 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h2>
-                <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
-                  exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
-                  incididunt
-                  aliquip aliquip deserunt nulla laborum non incididunt sit adipisicing do ullamco quis. Ex id sit
-                  cillum
-                  quis
-                  eu voluptate ut est est pariatur Lorem amet duis labore.</p>
-                <a href="#">Meet Our Industry Executives</a>
+                  <h2 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h2>
+                  <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
+                    exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
+                    incididunt.</p>
+                  <a href="#">Meet Our Industry Executives</a>
+                </div>
+                <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
               </div>
-              <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
-            </section>
-            <section class="firm__section--bottom">
-              <p>Enim consequat amet eu eiusmod tempor elit quis et sint. Non dolor aute nisi anim aliqua dolor aliqua
-                ea.
-                Qui ut irure nulla et commodo duis laboris et qui exercitation in. Ipsum cillum esse incididunt amet
-                anim
-                nisi ad mollit officia excepteur aute nulla et. Velit aliquip dolor pariatur ullamco commodo. Ipsum
-                tempor
-                velit ex velit eiusmod ipsum minim incididunt duis Lorem. Qui ea et sint id fugiat fugiat.</p>
+              <div class="firm__section--bottom">
+                <p>Enim consequat amet eu eiusmod tempor elit quis et sint. Non dolor aute nisi anim aliqua dolor aliqua
+                  ea.
+                  Qui ut irure nulla et commodo duis laboris et qui exercitation in. Ipsum cillum esse incididunt amet
+                  anim
+                  nisi ad mollit officia excepteur aute nulla et. Velit aliquip dolor pariatur ullamco commodo. Ipsum
+                  tempor
+                  velit ex velit eiusmod ipsum minim incididunt duis Lorem. Qui ea et sint id fugiat fugiat.</p>
+              </div>
             </section>
           </div>
         </div>

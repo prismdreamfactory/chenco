@@ -20,6 +20,10 @@
       border-bottom: 1px solid #fff;
     }
   }
+
+  .firm__section & {
+    align-items: flex-start;
+  }
 }
 
 .firm__subheading {
@@ -30,6 +34,11 @@
   display: grid;
   grid-template-columns: 55% 35%;
   grid-column-gap: 10%;
+  margin-bottom: 3rem;
+
+  img {
+    height: 100%;
+  }
 }
 
 .performance__section {
