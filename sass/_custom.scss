@@ -130,5 +130,13 @@ section {
   font-size: 1rem;
   padding: 0.5rem 2.5rem;
   background-color: $primary;
+  color: #fff;
   cursor: pointer;
+}
+
+a,
+a:visited {
+  &.btn {
+    color: #fff;
+  }
 }
