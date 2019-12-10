@@ -54,7 +54,7 @@ get_header(); ?>
             <section class="firm__section">
               <div class="firm__section--top">
                 <div class="">
-                  <h1 class="firm__heading">Our Vision</h1>
+                  <h1 class="heading">Our Vision</h1>
 
                   <h2 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h2>
                   <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
@@ -110,21 +110,17 @@ get_header(); ?>
         <div class="tab-content" data-content="4">
           <section class="business__section">
             <div class="container">
-              <h1 class="firm__heading alt">Our Businesses</h1>
+              <h1 class="heading alt">Our Businesses</h1>
 
               <h2 class="firm__subheading">Real Estate Fund Management</h2>
-              <p>With over 28 years of industry experience, we have acess to nationwide real estate investments
-                and
-                financing opportunities. We continue building close relationships with clients in the United
-                States
-                and
-                the Greater China Region. We deliver attractive risk-adjusted returns to our clients.</p>
+              <p>With over 28 years of industry experience, we have access to nationwide real estate investments
+                and financing opportunities. We continue building close relationships with clients in the United
+                States and the Greater China Region. We deliver attractive risk-adjusted returns to our clients.</p>
 
               <h2 class="firm__subheading">Real Estate Venture Capital</h2>
               <p>We have co-founded several successful companies, including The Bascom Group, and Premier
-                Workspaces.
-                We
-                continue to actively pursue venture capital investments in the United States and Asia.</p>
+                Workspaces. We continue to actively pursue venture capital investments in the United States and Asia.
+              </p>
             </div>
           </section>
         </div>
