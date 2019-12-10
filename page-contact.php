@@ -30,7 +30,7 @@ get_header(); ?>
 
     <?php endwhile; ?>
 
-    <div class="contact">
+    <div class="contact container">
         <span class="contact-line"></span>
         <div class="contact-people-container">
             <div class="contact-people-item">
