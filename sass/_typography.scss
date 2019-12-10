@@ -31,23 +31,8 @@ a {
 h1 {
   font-family: $sans;
   font-weight: 700;
-  font-style: italic;
 }
 
 h2 {
-  font-family: $sans;
   font-weight: 700;
-  font-style: italic;
-
-  @include media('≤tablet') {
-    .mission &,
-    .featured & {
-      font-size: 2rem;
-    }
-  }
-}
-
-h5,
-h6 {
-  margin-bottom: 0;
 }

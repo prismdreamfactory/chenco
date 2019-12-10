@@ -1,0 +1,70 @@
+.firm__heading {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &:after {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    border-bottom: 1px solid $body;
+    margin: 2rem 0;
+  }
+
+  &.alt {
+    &:after {
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
+
+.firm__subheading {
+  font-size: 1rem;
+}
+
+.firm__section--top {
+  display: grid;
+  grid-template-columns: 55% 35%;
+  grid-column-gap: 10%;
+}
+
+.performance__section {
+  padding: 2rem 0;
+
+  img {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;
+    padding: 2rem 0;
+  }
+}
+
+.fund__section {
+  display: grid;
+  grid-template-columns: 35% 55%;
+  grid-column-gap: 10%;
+}
+
+.business__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url('/wp-content/uploads/2019/12/SliderImage1.jpg');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  height: 70vh;
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+}
