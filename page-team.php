@@ -60,6 +60,8 @@ get_header(); ?>
           <div class="team__modal-left">
             <?php the_post_thumbnail(); ?>
             <a href="javascript:">Connect with me</a>
+            <p><?php the_field('years'); ?> years at Chenco</p>
+            <p>Joined in <?php the_field('join_date'); ?></p>
           </div>
           <div class="team__modal-right">
             <h3><?php the_title(); ?></h3>

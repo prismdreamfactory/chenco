@@ -35,6 +35,11 @@
   color: #fff;
   border-radius: 0;
   box-shadow: none;
+
+  a {
+    color: #fff;
+    text-transform: uppercase;
+  }
 }
 
 .team__modal {
@@ -47,6 +52,11 @@
   margin: 0 auto;
 }
 
-.team__modal-left img {
-  max-width: 100%;
+.team__modal-left {
+  img {
+    max-width: 100%;
+  }
+  p {
+    margin: 0;
+  }
 }
