@@ -68,6 +68,35 @@ function chenco_acf_init()
 add_theme_support('customer-area.stylesheet');
 
 /**
+ * 
+ */
+add_action('pmxi_saved_post', 'save_custom_field_address', 10, 3);
+function save_custom_field_address($post_id, $xml_data, $is_update)
+{
+  $address_custom_field = '_the_address'; // The custom field you imported the address into
+  $api_key = 'yourkeyhere'; // Your Google Maps Geocoding API Key
+  $lat_cf = '_post_latitude'; // The custom field you want the latitude imported into
+  $lng_cf = '_post_longitude'; // The custom field you want the longitude imported into
+  if ($address = get_post_meta($post_id, $address_custom_field, true)) {
+    $google_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . rawurlencode($address) . '&key=' . $api_key;
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $google_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $json = curl_exec($curl);
+    curl_close($curl);
+
+    if (!empty($json)) {
+      $details = json_decode($json, true);
+      $lat = $details['results'][0]['geometry']['location']['lat'];
+      $lng = $details['results'][0]['geometry']['location']['lng'];
+
+      update_post_meta($post_id, $lat_cf, $lat);
+      update_post_meta($post_id, $lng_cf, $lng);
+    }
+  }
+}
+
+/**
  * Custom navigation menu description
  */
 add_filter('walker_nav_menu_start_el', 'chenco_menu_item_description', 10, 4);
