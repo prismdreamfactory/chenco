@@ -3,10 +3,8 @@
 /* Template Name: Team Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
-
-
 
 get_header(); ?>
 
@@ -26,6 +24,8 @@ get_header(); ?>
 
         <h1><?php the_title(); ?></h1>
 
+        <span class="front-line"></span>
+
         <p><?php the_content(); ?></p>
 
       </div>
@@ -37,7 +37,7 @@ get_header(); ?>
       $loop = new WP_Query(
         array(
           'post_type' => 'teammembers',
-          'posts_per_page' => -1
+          'posts_per_page' => -1,
         )
       );
       while ($loop->have_posts()) : $loop->the_post(); ?>
