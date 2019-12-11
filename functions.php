@@ -62,21 +62,24 @@ add_filter('generate_footer_widget_2_width', function () {
 add_action('acf/init', 'chenco_acf_init');
 function chenco_acf_init()
 {
-  acf_update_setting('google_api_key', 'AIzaSyBMZLXZwNLw2ipOCmrNmQlJIoT4tfr_Hkg');
+  acf_update_setting('google_api_key', getenv('GOOGLE_API_KEY'));
 }
 
 add_theme_support('customer-area.stylesheet');
 
 /**
- * 
+ * WP All Import hook to geocode provided address into lat and lng
  */
 add_action('pmxi_saved_post', 'save_custom_field_address', 10, 3);
+// add_action('save_post', 'save_custom_field_address', 10, 3);
 function save_custom_field_address($post_id, $xml_data, $is_update)
 {
-  $address_custom_field = '_the_address'; // The custom field you imported the address into
-  $api_key = 'yourkeyhere'; // Your Google Maps Geocoding API Key
-  $lat_cf = '_post_latitude'; // The custom field you want the latitude imported into
-  $lng_cf = '_post_longitude'; // The custom field you want the longitude imported into
+  $address_custom_field = 'location_address'; // The custom field you imported the address into
+  $api_key = getenv('GOOGLE_API_KEY');
+  $lat_cf = 'location_latitude'; // The custom field you want the latitude imported into
+  $lng_cf = 'location_longitude'; // The custom field you want the longitude imported into
+
+
   if ($address = get_post_meta($post_id, $address_custom_field, true)) {
     $google_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . rawurlencode($address) . '&key=' . $api_key;
     $curl = curl_init();

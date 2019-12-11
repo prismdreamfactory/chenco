@@ -26,11 +26,12 @@ get_header(); ?>
 
     </div>
 
-    <?php while (have_posts()) : the_post();
+    <?php
+    // while (have_posts()) : the_post();
 
-      get_template_part('partials/map');
+    get_template_part('partials/map');
 
-    endwhile;
+    // endwhile;
 
     /**
      * generate_after_main_content hook.
