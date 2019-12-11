@@ -1,27 +1,7 @@
 .main-navigation {
   .main-nav {
     ul {
-      display: flex;
-      justify-content: flex-end;
-
       li {
-        border-right: 1px solid $dark;
-        max-width: 260px;
-
-        &:nth-child(n + 5) {
-          display: none;
-        }
-
-        &:nth-child(n + 7) {
-          a {
-            color: $dark;
-          }
-        }
-
-        &:nth-child(4) {
-          border: 0;
-        }
-
         a {
           text-align: left;
           padding: 1rem;
@@ -31,26 +11,96 @@
           line-height: normal;
           transition: 0.3s ease;
         }
+      }
+    }
+  }
+}
 
-        span {
-          display: block;
-          line-height: normal;
-          font-family: $sans;
-          font-weight: 700;
-          color: #666;
-          font-size: 0.8rem;
-          margin-top: 0.5rem;
-          letter-spacing: 0.01px;
-          -webkit-font-smoothing: antialiased;
+#site-navigation {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+
+    li {
+      border-right: 1px solid $dark;
+      max-width: 260px;
+
+      &:nth-child(n + 5) {
+        display: none;
+      }
+
+      &:nth-child(n + 7) {
+        a {
+          color: $dark;
         }
+      }
+
+      &:nth-child(4) {
+        border: 0;
+      }
+
+      span {
+        display: block;
+        line-height: normal;
+        font-family: $sans;
+        font-weight: 700;
+        color: $dark;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        letter-spacing: 0.01px;
+        -webkit-font-smoothing: antialiased;
       }
     }
   }
 }
 
 #sticky-navigation {
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+
   li {
     border: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+
+    a {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &:nth-last-child(2) {
+      margin-left: 1rem;
+    }
+
+    &:nth-last-child(-n + 2) {
+      a {
+        font-family: $sans;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+    }
+
+    &:last-child {
+      a {
+        &:before {
+          content: '';
+          border-left: 1px solid $dark;
+          height: 1rem;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .sticky-navigation-logo {
+    img {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .description {
@@ -81,7 +131,7 @@
             font-family: $sans;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.02em;
             line-height: normal;
           }
         }
