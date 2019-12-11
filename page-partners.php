@@ -25,7 +25,7 @@ get_header(); ?>
     <?php while (have_posts()) : the_post(); ?>
 
     <div class="container partners">
-      <h1>Our Companies</h1>
+      <h1 class="heading blue">Our Companies</h1>
 
       <p>We have a group of exceptional, multi-lingual and multi-cultural professionals who can handle diverse
         activities in our areas of endeavor. They provide full-spectrum investment and asset management services to our
@@ -34,17 +34,21 @@ get_header(); ?>
       <div class="tabs tabs--alt">
         <div class="container">
           <ul class="tabs-nav">
-            <li class="tab active" data-tab="1">
-              <img src="/wp-content/uploads/2019/12/Bascom1.png" class="tab__icon" />
+            <li class="tab tab--1 active" data-tab="1">
+              <div class="tab__image-wrap"><img src="/wp-content/uploads/2019/12/Bascom1.png"
+                  class="tab__logo tab__logo-1" /></div>
             </li>
-            <li class="tab" data-tab="2">
-              <img src="/wp-content/uploads/2019/12/Premier.png" class="tab__icon" />
+            <li class="tab tab--2" data-tab="2">
+              <div class="tab__image-wrap"><img src="/wp-content/uploads/2019/12/Premier.png"
+                  class="tab__logo tab__logo-2" /></div>
             </li>
-            <li class="tab" data-tab="3">
-              <img src="/wp-content/uploads/2019/12/Steelwave.png" class="tab__icon" />
+            <li class="tab tab--3" data-tab="3">
+              <div class="tab__image-wrap"><img src="/wp-content/uploads/2019/12/Steelwave.png"
+                  class="tab__logo tab__logo-3" /></div>
             </li>
-            <li class="tab" data-tab="4">
-              <img src="/wp-content/uploads/2019/12/Newport.png" class="tab__icon" />
+            <li class="tab tab--4" data-tab="4">
+              <div class="tab__image-wrap"><img src="/wp-content/uploads/2019/12/Newport.png"
+                  class="tab__logo tab__logo-4" /></div>
             </li>
           </ul>
         </div>
@@ -92,7 +96,27 @@ get_header(); ?>
           </div>
           <div class=" tab-content" data-content="2">
             <div class="container">
+              <section class="partners__section">
+                <div class="partners__section--top">
+                  <div>
+                    <p>The Bascom Group is a private eequity firm specializing in value-added multifamily, commercial,
+                      and non-performing loans and real estate related investments and operating companies.</p>
+                    <p>Based in Irvine, California, the firm is involved principally in the acquisition of multi-family
+                      housing that can increase in value via remodeling, repositioning and improved management. The
+                      Bascom Group is a nationally recognized manager of distressed multi-family properties. The Bascom
+                      Group is ranked #1 in 2014 Multi-family Executive's (MFE) Top 25 Renovators List. Under the
+                      leadership of Jerry Fink and Dave Kim, the company has purchased over 63,000 apartment units since
+                      inception.
+                    </p>
+                  </div>
+                  <div>
+                    <h4>Team Lead</h4>
+                    <p>Name Goes Here</p>
 
+                    <address>26 Corporate Park, Irvine, CA 92606 <br> +1 949 955-0888 <br> www.websitehere.com</address>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
           <div class="tab-content" data-content="3">

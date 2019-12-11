@@ -31,19 +31,19 @@ get_header(); ?>
         <ul class="tabs-nav">
           <li class="tab active" data-tab="1">
             <img src="/wp-content/uploads/2019/12/noun_firm_2274591.png" class="tab__icon" />
-            Our Firm
+            <span>Our Firm</span>
           </li>
           <li class="tab" data-tab="2">
             <img src="/wp-content/uploads/2019/12/noun_performance_1650786.png" class="tab__icon" />
-            Our Performance
+            <span>Our Performance</span>
           </li>
           <li class="tab" data-tab="3">
             <img src="/wp-content/uploads/2019/12/noun_funds_232470.png" class="tab__icon" />
-            Our Funds
+            <span>Our Funds</span>
           </li>
           <li class="tab" data-tab="4">
             <img src="/wp-content/uploads/2019/12/noun_business-to-business_2343503.png" class="tab__icon" />
-            Our Business
+            <span>Our Business</span>
           </li>
         </ul>
       </div>
@@ -54,9 +54,9 @@ get_header(); ?>
             <section class="firm__section">
               <div class="firm__section--top">
                 <div class="">
-                  <h1 class="heading">Our Vision</h1>
+                  <h2 class="heading">Our Vision</h2>
 
-                  <h2 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h2>
+                  <h3 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h3>
                   <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
                     exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
                     incididunt.</p>
@@ -110,14 +110,14 @@ get_header(); ?>
         <div class="tab-content" data-content="4">
           <section class="business__section">
             <div class="container">
-              <h1 class="heading alt center">Our Businesses</h1>
+              <h2 class="heading alt center">Our Businesses</h2>
 
-              <h2 class="firm__subheading">Real Estate Fund Management</h2>
+              <h3 class="firm__subheading">Real Estate Fund Management</h3>
               <p>With over 28 years of industry experience, we have access to nationwide real estate investments
                 and financing opportunities. We continue building close relationships with clients in the United
                 States and the Greater China Region. We deliver attractive risk-adjusted returns to our clients.</p>
 
-              <h2 class="firm__subheading">Real Estate Venture Capital</h2>
+              <h3 class="firm__subheading">Real Estate Venture Capital</h3>
               <p>We have co-founded several successful companies, including The Bascom Group, and Premier
                 Workspaces. We continue to actively pursue venture capital investments in the United States and Asia.
               </p>
