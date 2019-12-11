@@ -1,6 +1,32 @@
 .partners {
+  .tabs-nav {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+  }
+
   .tab-content {
     background: transparent;
+  }
+
+  .tab {
+    box-sizing: border-box;
+    width: 100%;
+    border-right: 1px solid #000;
+    padding: 0 2rem;
+
+    &--1 {
+    }
+  }
+
+  .tab__logo {
+    max-height: 40px;
+
+    &-2 {
+      max-height: 50px;
+    }
+    &-3 {
+      max-height: 48px;
+    }
   }
 }
 
