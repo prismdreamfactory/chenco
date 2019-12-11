@@ -32,7 +32,7 @@ get_header(); ?>
 
     <?php endwhile; ?>
 
-    <div class="team">
+    <div class="container team">
       <?php
       $loop = new WP_Query(
         array(
