@@ -20,39 +20,38 @@ get_header(); ?>
 
     <?php while (have_posts()) : the_post(); ?>
 
-      <div class="grid-container">
-
-        <h1><?php the_title(); ?></h1>
-
-        <span class="front-line"></span>
-
-        <p><?php the_content(); ?></p>
-
-      </div>
+      <div class="grid-container"></div>
 
     <?php endwhile; ?>
+    
+    <div class="team container">
+      <div class="team-header">
+        <h1>Our Team</h1>
+        <span class="front-line"></span>
+        <p><?php the_content(); ?></p>
+      </div>
+        <div class="team-container">
+          <?php
+          $loop = new WP_Query(
+            array(
+              'post_type' => 'teammembers',
+              'posts_per_page' => -1,
+            )
+          );
+          while ($loop->have_posts()) : $loop->the_post(); ?>
 
-    <div class="container team">
-      <?php
-      $loop = new WP_Query(
-        array(
-          'post_type' => 'teammembers',
-          'posts_per_page' => -1,
-        )
-      );
-      while ($loop->have_posts()) : $loop->the_post(); ?>
+            <div class="team__item">
+              <a href="#modal--<?= get_the_ID(); ?>" rel="modal:open">
+                <?php the_post_thumbnail(); ?>
+              </a>
+              <a href="javascript:">
+                <h5><?php the_title(); ?></h5>
+              </a>
+              <h6><?php the_field('role'); ?></h6>
+            </div>
 
-        <div class="team__item">
-          <a href="#modal--<?= get_the_ID(); ?>" rel="modal:open">
-            <?php the_post_thumbnail(); ?>
-          </a>
-          <a href="javascript:">
-            <h5><?php the_title(); ?></h5>
-          </a>
-          <h6><?php the_field('role'); ?></h6>
+          <?php endwhile; ?>
         </div>
-
-      <?php endwhile; ?>
     </div>
 
     <?php while ($loop->have_posts()) : $loop->the_post(); ?>
