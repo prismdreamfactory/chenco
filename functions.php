@@ -44,7 +44,7 @@ add_filter('generate_copyright', 'chenco_custom_copyright');
 function chenco_custom_copyright()
 {
   ?>
-  © 2019 Chenco Holdings. All Rights Reserved.
+© 2019 Chenco Holdings. All Rights Reserved.
 <?php
 }
 
@@ -68,58 +68,14 @@ function chenco_acf_init()
 add_theme_support('customer-area.stylesheet');
 
 /**
- * Custom navigation menu
+ * Custom navigation menu description
  */
-
-class Chenco_Walker extends Walker_Page
+add_filter('walker_nav_menu_start_el', 'chenco_menu_item_description', 10, 4);
+function chenco_menu_item_description($item_output, $item, $depth, $args)
 {
-  function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0)
-  {
-    $css_class = array('page_item', 'page-item-' . $page->ID);
-    $button = '';
-
-    if (isset($args['pages_with_children'][$page->ID])) {
-      $css_class[] = 'menu-item-has-children';
-      $icon = generate_get_svg_icon('arrow');
-      $button = '<span role="presentation" class="dropdown-menu-toggle">' . $icon . '</span>';
-    }
-
-    if (!empty($current_page)) {
-      $_current_page = get_post($current_page);
-      if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
-        $css_class[] = 'current-menu-ancestor';
-      }
-      if ($page->ID == $current_page) {
-        $css_class[] = 'current-menu-item';
-      } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
-        $css_class[] = 'current-menu-parent';
-      }
-    } elseif ($page->ID == get_option('page_for_posts')) {
-      $css_class[] = 'current-menu-parent';
-    }
-
-    $css_classes = implode(' ', apply_filters('page_css_class', $css_class, $page, $depth, $args, $current_page));
-
-    $args['link_before'] = empty($args['link_before']) ? '' : $args['link_before'];
-    $args['link_after'] = empty($args['link_after']) ? '' : $args['link_after'];
-
-    $output .= sprintf(
-      '<li class="%s"><a href="%s">%s%s%s%s</a>',
-      $css_classes,
-      get_permalink($page->ID),
-      $args['link_before'],
-      apply_filters('the_title', $page->post_title, $page->ID),
-      $args['link_after'],
-      $button
-    );
+  if ('primary' == $args->theme_location || 'secondary' == $args->theme_location || 'slideout' == $args->theme_location) {
+    $item_output = str_replace($args->link_after . '</a>', $args->link_after . '</span><span class="description">' . $item->description . '</span></a>', $item_output);
   }
+
+  return $item_output;
 }
-
-
-// add_filter('wp_nav_menu_args', function ($args) {
-//   if ('primary' === $args['theme_location'] && class_exists('Chenco_Walker')) {
-//     $args['walker'] = new Chenco_Walker();
-//   }
-
-//   return $args;
-// });
