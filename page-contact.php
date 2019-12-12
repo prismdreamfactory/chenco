@@ -20,17 +20,12 @@ get_header(); ?>
 
     <?php while (have_posts()) : the_post(); ?>
 
-      <div class="grid-container">
-
-        <h1><?php the_title(); ?></h1>
-
-        <p><?php the_content(); ?></p>
-
-      </div>
+      <div class="grid-container"></div>
 
     <?php endwhile; ?>
 
-    <div class="contact">
+    <div class="contact container">
+    <h1><?php the_title(); ?></h1>
         <span class="contact-line"></span>
         <div class="contact-people-container">
             <div class="contact-people-item">
