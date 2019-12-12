@@ -10,7 +10,7 @@
 
   <div class="map__tabs">
     <div class="map__tab font--alt">Global</div>
-    <div class="map__tab font--alt active">U.S. Properties</div>
+    <div class="map__tab font--alt mod--active">U.S. Properties</div>
     <div class="map__tab font--alt">Asia Properties</div>
   </div>
 
@@ -33,11 +33,22 @@
       <?php if (have_rows('location')) : the_row();
             $lat = get_sub_field('latitude');
             $lng = get_sub_field('longitude');
+            $type = get_field('asset_type');
             ?>
 
       <div class="marker" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>">
         <div class="map__info">
-          <h3>test</h3>
+          <h3 class="map__info__heading"><?php echo $type['label']; ?>
+          </h3>
+          <p class="map__info__item">-
+            <?php if (get_field('units')) : ?>
+            <span><?php the_field('sqft'); ?> sq ft</span>
+            <?php endif; ?>
+            <?php if (get_field('units')) : ?>
+            <span><?php the_field('units') ?> units</span>
+            <?php endif; ?>
+          </p>
+          <a href="javascript:" class="map__info__button">View Property</a>
         </div>
       </div>
 
@@ -59,7 +70,7 @@
     </div>
 
     <div class="map__switch">
-      <div class="map__switch-item mod-active">Current</div>
+      <div class="map__switch-item mod--active">Current</div>
       <div class="map__switch-item">Historical</div>
     </div>
 
