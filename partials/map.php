@@ -36,18 +36,19 @@
             $type = get_field('asset_type');
             ?>
 
-      <div class="marker" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>">
+      <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>">
         <div class="map__info">
           <h3 class="map__info__heading"><?php echo $type['label']; ?>
           </h3>
           <p class="map__info__item">-
-            <?php if (get_field('units')) : ?>
+            <?php if (get_field('sqft')) : ?>
             <span><?php the_field('sqft'); ?> sq ft</span>
             <?php endif; ?>
             <?php if (get_field('units')) : ?>
             <span><?php the_field('units') ?> units</span>
             <?php endif; ?>
           </p>
+
           <a href="javascript:" class="map__info__button">View Property</a>
         </div>
       </div>
@@ -70,8 +71,8 @@
     </div>
 
     <div class="map__switch">
-      <div class="map__switch-item mod--active">Current</div>
-      <div class="map__switch-item">Historical</div>
+      <div class="map__switch-item mod--active"><i></i>Current</div>
+      <div class="map__switch-item"><i></i>Historical</div>
     </div>
 
   </div>

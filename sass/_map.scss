@@ -41,6 +41,20 @@
   position: absolute;
   top: 10%;
   right: 0;
+  font-family: $sans;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-family: $sans;
+  }
+
+  span {
+    font-family: $sans;
+  }
 }
 .map__legend--main {
   background-color: #fff;
@@ -49,17 +63,22 @@
 .map__legend-row {
   display: flex;
   justify-content: space-between;
+  margin: 0;
 
   span:first-child {
     margin-right: 1rem;
+    font-weight: 700;
+    color: $aegean;
   }
 }
 .map__legend--bottom {
   background-color: #ccc;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 .map__legend--bottom-text {
   margin: 0;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 }
 
 .map__switch {
@@ -78,13 +97,45 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s ease;
+  font-family: $sans;
+  font-weight: 700;
+  position: relative;
+  padding-left: 80px;
+  min-width: 100px;
+  letter-spacing: 0.05em;
+
+  i {
+    position: relative;
+    left: -40px;
+
+    &:before {
+      content: '';
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: -10px;
+    }
+  }
 
   &:first-child {
     border-radius: 30px 0 0 30px;
+    text-align: right;
+
+    i:before {
+      content: '';
+      background-image: url('/wp-content/uploads/2019/12/CurrentIcon.png');
+      left: 0;
+    }
   }
 
   &:last-child {
     border-radius: 0 30px 30px 0;
+
+    i:before {
+      content: '';
+      background-image: url('/wp-content/uploads/2019/12/HistoricalIcon.png');
+    }
   }
 
   &.mod--active {
