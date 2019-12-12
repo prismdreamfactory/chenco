@@ -113,6 +113,7 @@ function debounced(delay, fn) {
     // centerMap(map);
 
     initLocationTabs(map);
+    initMapSwitch(map);
 
     // return
     return map;
@@ -132,7 +133,7 @@ function debounced(delay, fn) {
     const latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
     const type = $marker.attr('data-type').toLowerCase();
 
-    // custom marker icon colors
+    // custom marker icon colors for each asset type
     const icons = {
       office: 'rgb(37, 79, 123)',
       multifamily: 'rgb(191, 144, 1)',
@@ -227,6 +228,19 @@ function debounced(delay, fn) {
 
         country === 'global' ? map.setZoom(3) : map.setZoom(4);
         map.setCenter(center[country]);
+      });
+    });
+  }
+
+  function initMapSwitch(map) {
+    const $options = $('.map__switch-item');
+
+    $options.each(function() {
+      $(this).on('click', () => {
+        let country = $(this).attr('data-current');
+
+        $options.removeClass('mod--active');
+        $(this).addClass('mod--active');
       });
     });
   }
