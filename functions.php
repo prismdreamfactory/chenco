@@ -25,11 +25,13 @@ function generatepress_parent_theme_enqueue_styles()
   wp_enqueue_style('generatepress-style', get_template_directory_uri() . '/style.css');
   wp_enqueue_style('chenco-style', get_stylesheet_directory_uri() . '/style.css', 'all');
 
-  wp_enqueue_script('google-maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyBMZLXZwNLw2ipOCmrNmQlJIoT4tfr_Hkg', array(), false, false);
+
+  wp_enqueue_script('google-maps-clusterer', '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array(), false, false);
+  wp_enqueue_script('google-maps', '//maps.googleapis.com/maps/api/js?key=' . getenv('GOOGLE_API_KEY'), array(), false, false);
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', array('jquery'), false, false);
   // wp_enqueue_script('fancybox', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), false, false);
   wp_enqueue_script('modal', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', array(), false, false);
-  wp_enqueue_script('chenco-js', get_stylesheet_directory_uri() . '/script.js', array('google-maps', 'slick', 'modal'));
+  wp_enqueue_script('chenco-js', get_stylesheet_directory_uri() . '/script.js', array('google-maps-clusterer', 'google-maps', 'slick', 'modal'));
 }
 
 /**

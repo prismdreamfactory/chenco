@@ -184,6 +184,13 @@ function debounced(delay, fn) {
       bounds.extend(latlng);
     });
 
+    console.log(map.markers);
+
+    const markerCluster = new MarkerClusterer(map, map.markers, {
+      imagePath:
+        'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
+
     // only 1 marker?
     if (map.markers.length == 1) {
       // set center of map
@@ -201,8 +208,8 @@ function debounced(delay, fn) {
 
     $tabs.each(function() {
       $(this).on('click', () => {
-        $tabs.removeClass('mod-active');
-        $(this).addClass('mod-active');
+        $tabs.removeClass('mod--active');
+        $(this).addClass('mod--active');
         map.setCenter(new google.maps.LatLng(45.141496, 205.588005));
         map.setZoom(3);
       });
