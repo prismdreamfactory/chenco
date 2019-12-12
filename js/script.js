@@ -24,10 +24,34 @@ function debounced(delay, fn) {
   };
 
   const initSlider = () => {
-    $('.home-slick').slick({
-      dots: true,
-      arrows: true
-    });
+    if ($('.slick').length) {
+      $('.slick').slick({
+        dots: true,
+        arrows: true,
+        infinite: false,
+        slidesToShow: 3
+      });
+    }
+  };
+
+  const initTabs = () => {
+    if ($('.tabs').length) {
+      $('[data-tab]').on('click', function(e) {
+        $(this)
+          .addClass('active')
+          .siblings('[data-tab]')
+          .removeClass('active');
+        $('.tab-container')
+          .find('[data-content=' + $(this).data('tab') + ']')
+          .addClass('active')
+          .siblings('[data-content]')
+          .removeClass('active');
+
+        e.preventDefault();
+      });
+    }
+
+    // $('[data-tab=4]').trigger('click');
   };
 
   const loginModal = () => {
@@ -94,10 +118,7 @@ function debounced(delay, fn) {
    */
 
   function addMarker($marker, map) {
-    const latlng = new google.maps.LatLng(
-      $marker.attr('data-lat'),
-      $marker.attr('data-lng')
-    );
+    const latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
 
     const rootUrl = document.location.origin;
 
@@ -158,10 +179,7 @@ function debounced(delay, fn) {
 
     // loop through all markers and create bounds
     $.each(map.markers, function(i, marker) {
-      const latlng = new google.maps.LatLng(
-        marker.position.lat(),
-        marker.position.lng()
-      );
+      const latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
       bounds.extend(latlng);
     });
@@ -195,6 +213,8 @@ function debounced(delay, fn) {
   $(() => {
     // initialize functions
     loginModal();
+    initTabs();
+    initSlider();
 
     // if ($('body').hasClass('home')) {
     // initSlider();

@@ -15,24 +15,22 @@ Version:        0.1.0
 
 @import 'typography';
 
+@import 'components/navigation';
+
 @import 'components/tabs';
 
-@import 'home/mission';
+@import 'components/footer';
 
-@import 'home/gallery';
+@import 'pages/our-firm';
 
-@import 'home/pricing';
+@import 'pages/partners';
 
 @import 'pages/team';
 
-@import 'map';
-
-@import 'home/featured-products';
-
-@import 'home/newsletter';
-
-@import 'footer';
-
 @import 'pages/contact';
+
+@import 'pages/front-page';
+
+@import 'map';
 
 @import 'custom';

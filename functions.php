@@ -44,7 +44,7 @@ add_filter('generate_copyright', 'chenco_custom_copyright');
 function chenco_custom_copyright()
 {
   ?>
-  © 2019 Chenco Holdings. All Rights Reserved.
+© 2019 Chenco Holdings. All Rights Reserved.
 <?php
 }
 
@@ -62,64 +62,52 @@ add_filter('generate_footer_widget_2_width', function () {
 add_action('acf/init', 'chenco_acf_init');
 function chenco_acf_init()
 {
-  acf_update_setting('google_api_key', 'AIzaSyBMZLXZwNLw2ipOCmrNmQlJIoT4tfr_Hkg');
+  acf_update_setting('google_api_key', getenv('GOOGLE_API_KEY'));
 }
 
 add_theme_support('customer-area.stylesheet');
 
 /**
- * Custom navigation menu
+ * WP All Import hook to geocode provided address into lat and lng
  */
-
-class Chenco_Walker extends Walker_Page
+add_action('pmxi_saved_post', 'save_custom_field_address', 10, 3);
+// add_action('save_post', 'save_custom_field_address', 10, 3);
+function save_custom_field_address($post_id, $xml_data, $is_update)
 {
-  function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0)
-  {
-    $css_class = array('page_item', 'page-item-' . $page->ID);
-    $button = '';
+  $address_custom_field = 'location_address'; // The custom field you imported the address into
+  $api_key = getenv('GOOGLE_API_KEY');
+  $lat_cf = 'location_latitude'; // The custom field you want the latitude imported into
+  $lng_cf = 'location_longitude'; // The custom field you want the longitude imported into
 
-    if (isset($args['pages_with_children'][$page->ID])) {
-      $css_class[] = 'menu-item-has-children';
-      $icon = generate_get_svg_icon('arrow');
-      $button = '<span role="presentation" class="dropdown-menu-toggle">' . $icon . '</span>';
+
+  if ($address = get_post_meta($post_id, $address_custom_field, true)) {
+    $google_url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . rawurlencode($address) . '&key=' . $api_key;
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $google_url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    $json = curl_exec($curl);
+    curl_close($curl);
+
+    if (!empty($json)) {
+      $details = json_decode($json, true);
+      $lat = $details['results'][0]['geometry']['location']['lat'];
+      $lng = $details['results'][0]['geometry']['location']['lng'];
+
+      update_post_meta($post_id, $lat_cf, $lat);
+      update_post_meta($post_id, $lng_cf, $lng);
     }
-
-    if (!empty($current_page)) {
-      $_current_page = get_post($current_page);
-      if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
-        $css_class[] = 'current-menu-ancestor';
-      }
-      if ($page->ID == $current_page) {
-        $css_class[] = 'current-menu-item';
-      } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
-        $css_class[] = 'current-menu-parent';
-      }
-    } elseif ($page->ID == get_option('page_for_posts')) {
-      $css_class[] = 'current-menu-parent';
-    }
-
-    $css_classes = implode(' ', apply_filters('page_css_class', $css_class, $page, $depth, $args, $current_page));
-
-    $args['link_before'] = empty($args['link_before']) ? '' : $args['link_before'];
-    $args['link_after'] = empty($args['link_after']) ? '' : $args['link_after'];
-
-    $output .= sprintf(
-      '<li class="%s"><a href="%s">%s%s%s%s</a>',
-      $css_classes,
-      get_permalink($page->ID),
-      $args['link_before'],
-      apply_filters('the_title', $page->post_title, $page->ID),
-      $args['link_after'],
-      $button
-    );
   }
 }
 
+/**
+ * Custom navigation menu description
+ */
+add_filter('walker_nav_menu_start_el', 'chenco_menu_item_description', 10, 4);
+function chenco_menu_item_description($item_output, $item, $depth, $args)
+{
+  if ('primary' == $args->theme_location || 'secondary' == $args->theme_location || 'slideout' == $args->theme_location) {
+    $item_output = str_replace($args->link_after . '</a>', $args->link_after . '</span><span class="description">' . $item->description . '</span></a>', $item_output);
+  }
 
-// add_filter('wp_nav_menu_args', function ($args) {
-//   if ('primary' === $args['theme_location'] && class_exists('Chenco_Walker')) {
-//     $args['walker'] = new Chenco_Walker();
-//   }
-
-//   return $args;
-// });
+  return $item_output;
+}
