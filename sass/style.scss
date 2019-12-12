@@ -15,7 +15,11 @@ Version:        0.1.0
 
 @import 'typography';
 
+@import 'components/navigation';
+
 @import 'components/tabs';
+
+@import 'components/footer';
 
 @import 'pages/our-firm';
 
@@ -23,14 +27,16 @@ Version:        0.1.0
 
 @import 'pages/team';
 
-@import 'map';
-
-@import 'footer';
-
 @import 'pages/contact';
 
 @import 'pages/front-page';
 
+<<<<<<< HEAD
 @import 'pages/news';
+=======
+@import 'pages/bascom';
+
+@import 'map';
+>>>>>>> aafe18e7b57ee4edae4a8ae1c0b2d78d16aabc25
 
 @import 'custom';

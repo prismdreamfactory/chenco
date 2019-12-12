@@ -22,17 +22,53 @@ a {
     opacity: 0.8;
     transition: 0.3s ease;
   }
-
-  #menu-primary & {
-    font-family: 'Domine', serif;
-  }
 }
 
 h1 {
   font-family: $sans;
   font-weight: 700;
+
+  &.heading {
+    font-size: 2rem;
+    font-family: $serif;
+  }
 }
 
 h2 {
   font-weight: 700;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 0;
+
+  &:after {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    border-bottom: 1px solid $dark;
+    margin: 2rem 0;
+  }
+
+  &.alt {
+    &:after {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &.blue {
+    color: $aegean;
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
 }

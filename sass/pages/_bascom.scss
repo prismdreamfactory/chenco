@@ -1,0 +1,22 @@
+.bascom__item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 6fr;
+  padding: 3rem 0;
+  border-top: 1px solid #bbb;
+
+  h3 {
+    padding: 1rem;
+  }
+}
+
+.bascom__item__description {
+  display: flex;
+  flex-direction: column;
+}
+
+.bascom-info {
+  p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}

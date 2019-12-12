@@ -1,3 +1,7 @@
+.map {
+  padding: 0;
+}
+
 .map-wrapper {
   padding: 0;
   position: relative;
@@ -18,6 +22,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s ease;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 
   &:last-child {
     border: none;
@@ -27,7 +33,7 @@
     color: rgba(255, 255, 255, 1);
   }
 }
-.map__tab.mod-active {
+.map__tab.mod--active {
   color: #fff;
 }
 
@@ -35,6 +41,20 @@
   position: absolute;
   top: 10%;
   right: 0;
+  font-family: $sans;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-family: $sans;
+  }
+
+  span {
+    font-family: $sans;
+  }
 }
 .map__legend--main {
   background-color: #fff;
@@ -43,17 +63,22 @@
 .map__legend-row {
   display: flex;
   justify-content: space-between;
+  margin: 0;
 
   span:first-child {
     margin-right: 1rem;
+    font-weight: 700;
+    color: $aegean;
   }
 }
 .map__legend--bottom {
   background-color: #ccc;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 }
 .map__legend--bottom-text {
   margin: 0;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 }
 
 .map__switch {
@@ -72,16 +97,51 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s ease;
+  font-family: $sans;
+  font-weight: 700;
+  position: relative;
+  padding-left: 80px;
+  min-width: 100px;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+
+  i {
+    position: relative;
+    left: -40px;
+
+    &:before {
+      content: '';
+      width: 40px;
+      height: 30px;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: -10px;
+      background-size: contain;
+    }
+  }
 
   &:first-child {
     border-radius: 30px 0 0 30px;
+    text-align: right;
+
+    i:before {
+      content: '';
+      background-image: url('/wp-content/uploads/2019/12/CurrentIcon.png');
+      left: 0;
+      height: 32px;
+    }
   }
 
   &:last-child {
     border-radius: 0 30px 30px 0;
+
+    i:before {
+      content: '';
+      background-image: url('/wp-content/uploads/2019/12/HistoricalIcon.png');
+    }
   }
 
-  &.mod-active {
+  &.mod--active {
     background-color: rgba(39, 52, 59, 1);
   }
 }
@@ -95,26 +155,56 @@
   }
 }
 
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+}
+.gm-style .gm-style-iw-c {
+  padding: 0;
+  border-radius: 0;
+}
+.gm-style .gm-style-iw-t::after {
+  content: none;
+}
+
 .map__info {
-  h3 {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
+  font-family: $sans;
+  padding: 20px 50px;
+  margin: 0 0 0 -30px;
+  width: calc(100% - 40px);
+}
 
-  p {
-    font-weight: 300;
-    line-height: 1.6;
-  }
+.map__info__heading {
+  margin-bottom: 0.5rem;
+  text-transform: none;
+  font-weight: 700;
+}
 
-  table,
-  tr,
-  td {
-    border: 0;
-    height: 1.2rem;
-  }
+.map__info__item {
+  color: $orange;
+  font-family: $sans;
+  margin-bottom: 1rem;
 
-  td:first-child {
-    width: 20%;
+  span {
+    color: $orange;
+  }
+}
+
+.map__info__button {
+  color: #fff;
+  background: $aegean;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+
+  margin: 0 0 -20px -50px;
+  width: calc(100% + 100px);
+
+  &:hover {
+    color: #fff;
   }
 }
 
