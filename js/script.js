@@ -65,6 +65,15 @@ function debounced(delay, fn) {
     });
   };
 
+  /**
+   * Google map coordinates
+   */
+  const center = {
+    usa: new google.maps.LatLng(38.901187, -110.914306),
+    asia: new google.maps.LatLng(28.441223, -238.391588),
+    global: new google.maps.LatLng(40.141496, -168.588005)
+  };
+
   /*
    *  newMap
    *
@@ -80,8 +89,8 @@ function debounced(delay, fn) {
     const args = {
       minZoom: 3,
       maxZoom: 8,
-      zoom: 5,
-      center: new google.maps.LatLng(0, 0),
+      zoom: 4,
+      center: center['usa'],
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
@@ -101,7 +110,7 @@ function debounced(delay, fn) {
     });
 
     // center map
-    centerMap(map);
+    // centerMap(map);
 
     initLocationTabs(map);
 
@@ -121,24 +130,28 @@ function debounced(delay, fn) {
 
   function addMarker($marker, map) {
     const latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
+    const type = $marker.attr('data-type').toLowerCase();
 
-    const rootUrl = document.location.origin;
-
-    // custom marker icons
+    // custom marker icon colors
     const icons = {
-      // defaultIcon: {
-      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin.svg`
-      // },
-      // activeIcon: {
-      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin-active.svg`
-      // }
+      office: 'rgb(37, 79, 123)',
+      multifamily: 'rgb(191, 144, 1)',
+      land: 'rgb(87, 135, 171)',
+      industrial: 'rgb(121, 175, 153)'
+    };
+
+    // marker svg allowing options
+    const createMarker = color => {
+      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="${color}"/></svg>`;
+
+      return svg;
     };
 
     // create marker
     const marker = new google.maps.Marker({
       position: latlng,
-      map: map
-      // icon: icons.defaultIcon
+      map: map,
+      icon: createMarker(icons[type])
     });
 
     // add to array
@@ -186,10 +199,10 @@ function debounced(delay, fn) {
       bounds.extend(latlng);
     });
 
-    const markerCluster = new MarkerClusterer(map, map.markers, {
-      imagePath:
-        'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-    });
+    // const markerCluster = new MarkerClusterer(map, map.markers, {
+    //   imagePath:
+    //     'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    // });
 
     // only 1 marker?
     // if (map.markers.length == 1) {
@@ -198,20 +211,22 @@ function debounced(delay, fn) {
     //   map.setZoom(16);
     // } else {
     // fit to bounds
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
     // }
   }
 
   function initLocationTabs(map) {
-    const bounds = new google.maps.LatLngBounds();
     const $tabs = $('.map__tab');
 
     $tabs.each(function() {
       $(this).on('click', () => {
+        let country = $(this).attr('data-center');
+
         $tabs.removeClass('mod--active');
         $(this).addClass('mod--active');
-        map.setCenter(new google.maps.LatLng(45.141496, 205.588005));
-        map.setZoom(3);
+
+        country === 'global' ? map.setZoom(3) : map.setZoom(4);
+        map.setCenter(center[country]);
       });
     });
   }

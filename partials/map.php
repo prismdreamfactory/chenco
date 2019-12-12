@@ -9,9 +9,9 @@
 <section class="map">
 
   <div class="map__tabs">
-    <div class="map__tab font--alt">Global</div>
-    <div class="map__tab font--alt mod--active">U.S. Properties</div>
-    <div class="map__tab font--alt">Asia Properties</div>
+    <div class="map__tab font--alt" data-center="global">Global</div>
+    <div class="map__tab font--alt mod--active" data-center="usa">U.S. Properties</div>
+    <div class="map__tab font--alt" data-center="asia">Asia Properties</div>
   </div>
 
   <div class="map-wrapper">
@@ -36,7 +36,8 @@
             $type = get_field('asset_type');
             ?>
 
-      <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>">
+      <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>"
+        data-type="<?= $type['label'] ?>">
         <div class="map__info">
           <h3 class="map__info__heading"><?php echo $type['label']; ?>
           </h3>
