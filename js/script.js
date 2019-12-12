@@ -78,7 +78,9 @@ function debounced(delay, fn) {
     const $markers = $el.find('.marker');
 
     const args = {
-      zoom: 16,
+      minZoom: 3,
+      maxZoom: 8,
+      zoom: 5,
       center: new google.maps.LatLng(0, 0),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
@@ -184,22 +186,20 @@ function debounced(delay, fn) {
       bounds.extend(latlng);
     });
 
-    console.log(map.markers);
-
     const markerCluster = new MarkerClusterer(map, map.markers, {
       imagePath:
         'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
     // only 1 marker?
-    if (map.markers.length == 1) {
-      // set center of map
-      map.setCenter(bounds.getCenter());
-      map.setZoom(16);
-    } else {
-      // fit to bounds
-      map.fitBounds(bounds);
-    }
+    // if (map.markers.length == 1) {
+    //   // set center of map
+    //   map.setCenter(bounds.getCenter());
+    //   map.setZoom(16);
+    // } else {
+    // fit to bounds
+    map.fitBounds(bounds);
+    // }
   }
 
   function initLocationTabs(map) {
