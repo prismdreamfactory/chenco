@@ -197,13 +197,47 @@
 }
 
 @include media('<=tablet') {
-  display: none;
+  .secondary-navigation {
+    display: none;
+  }
 
   .inside-header {
-    padding: 40px 0;
+    padding: 20px 0 0 0;
+  }
+
+  #sticky-navigation .inside-navigation {
+    display: block;
   }
 }
 
 .menu-item-has-children .dropdown-menu-toggle {
   padding-right: 0 !important;
+}
+
+#site-navigation {
+  .menu-toggle {
+    background-color: $aegean;
+    color: #fff;
+  }
+
+  &.toggled {
+    .menu,
+    .sub-menu {
+      background: $aegean;
+    }
+
+    a {
+      color: #fff !important;
+      opacity: 1 !important;
+      font-family: $sans;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}
+
+.mobile-menu {
+  font-family: $sans;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
 }

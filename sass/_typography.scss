@@ -7,7 +7,7 @@ p {
 
   @include media('≤tablet') {
     line-height: 1.6;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -27,15 +27,26 @@ a {
 h1 {
   font-family: $sans;
   font-weight: 700;
+  letter-spacing: $letter-spacing;
 
   &.heading {
     font-size: 2rem;
     font-family: $serif;
+    text-transform: none;
+    font-weight: 400;
   }
 }
 
 h2 {
   font-weight: 700;
+}
+
+.sans {
+  font-family: $sans;
+}
+
+.serif {
+  font-family: $serif;
 }
 
 .heading {
@@ -71,4 +82,22 @@ h2 {
     justify-content: center;
     align-items: center;
   }
+}
+
+.highlight {
+  font-family: $serif;
+  color: $aegean;
+  font-size: 1.6rem;
+  margin-bottom: 1em;
+  line-height: 1.6;
+
+  @include media('<=tablet') {
+    font-size: 1.2rem;
+  }
+}
+
+address {
+  font-style: normal;
+  font-family: $sans;
+  margin-bottom: 0;
 }

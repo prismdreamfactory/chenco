@@ -43,20 +43,100 @@
       max-height: 34px;
     }
   }
+
+  @include media('<=tablet') {
+    .tabs-nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tab__image-wrap {
+      border-right: 0;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    .tab {
+      align-items: center;
+      padding: 1rem;
+      opacity: 0.5;
+
+      &.active {
+        opacity: 1;
+
+        &:before,
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+.partners__section {
+  min-height: 50vh;
 }
 
 .partners__section--top {
   display: grid;
   grid-template-columns: 60% 30%;
   grid-column-gap: 10%;
+
+  @include media('≤tablet') {
+    display: block;
+  }
+}
+
+.partners__contact {
+  h4 {
+    font-family: $sans;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-family: $sans;
+    line-height: 1;
+  }
+
+  a {
+    color: $dark;
+    line-height: 1;
+  }
+}
+
+.partners__address {
+  line-height: 1.6;
+}
+
+.partners__section--bottom {
+  margin-top: 2rem;
+
+  h2 {
+    font-family: $sans;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .operators {
   background: $light;
 
   .slick-list {
-    padding: 0 50px;
+    // padding: 0 50px;
     box-sizing: border-box;
+  }
+
+  .slick-slide {
+    padding: 0 40px;
+
+    @include media('<=tablet') {
+      padding: 0 20px;
+    }
   }
 
   .slick-track {

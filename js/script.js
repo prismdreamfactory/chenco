@@ -29,7 +29,15 @@ function debounced(delay, fn) {
         dots: true,
         arrows: true,
         infinite: false,
-        slidesToShow: 3
+        slidesToShow: 4,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
       });
     }
   };
