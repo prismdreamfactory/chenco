@@ -6,6 +6,15 @@
   p {
     margin: 0;
   }
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-row-gap: 1rem;
+    input {
+      border: 1px solid #bbb;
+    }
+  }
 }
 
 .bascom__item {
@@ -17,11 +26,20 @@
   h3 {
     padding: 1rem;
   }
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 
 .bascom__item__description {
   display: flex;
   flex-direction: column;
+
+  @include media('<tablet') {
+    max-width: 400px;
+  }
 }
 
 .bascom-info {

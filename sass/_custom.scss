@@ -31,6 +31,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   background: transparent !important;
+
+  @include media('<=tablet') {
+    padding: 0 1rem;
+  }
 }
 
 .navigation-branding .site-logo img {
