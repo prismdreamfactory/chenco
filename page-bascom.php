@@ -26,8 +26,7 @@ get_header(); ?>
     
     <div class="bascom container">
         <div class="team-header">
-            <h1><?php the_title(); ?></h1>
-            <span class="front-line"></span>
+            <h1 class="heading"><?php the_title(); ?></h1>
             <p><?php the_content(); ?></p>
             <div class="bascom-filter-container">
               <p>Filter by</p>
