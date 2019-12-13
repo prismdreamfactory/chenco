@@ -44,6 +44,12 @@
     }
   }
 
+  @include media('<=desktop') {
+    .tabs-nav {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
   @include media('<=tablet') {
     .tabs-nav {
       grid-template-columns: repeat(2, 1fr);

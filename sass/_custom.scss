@@ -35,11 +35,11 @@ body {
 
   @include media('≤tablet') {
     padding: 0 1rem;
-
-    #page & {
-      padding: 0;
-    }
   }
+}
+
+#page.container {
+  padding: 0;
 }
 
 .navigation-branding .site-logo img {
