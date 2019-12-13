@@ -28,10 +28,12 @@
 }
 
 #menu-footer {
-  display: flex;
-  justify-content: space-evenly;
+  float: right;
 
   li {
+    margin-left: 2rem;
+    float: right;
+
     a {
       color: #333;
       font-family: $serif;
@@ -41,15 +43,32 @@
 
 @include media('<=desktop') {
   .footer-widget-1 {
-    display: none;
+    width: 20%;
   }
   .footer-widget-2 {
-    width: 100% !important;
+    width: 80%;
   }
 }
 
 @include media('<=tablet') {
-  .footer-widget-2 {
+  .inside-footer-widgets {
     display: block;
+  }
+
+  .footer-widget-1,
+  .footer-widget-2 {
+    width: 100% !important;
+  }
+
+  .footer-widget-1 {
+    margin-bottom: 1rem !important;
+  }
+
+  #menu-footer {
+    float: left;
+    li {
+      float: none;
+      margin-left: 0;
+    }
   }
 }
