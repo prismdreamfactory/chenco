@@ -38,3 +38,18 @@
     }
   }
 }
+
+@include media('<=desktop') {
+  .footer-widget-1 {
+    display: none;
+  }
+  .footer-widget-2 {
+    width: 100% !important;
+  }
+}
+
+@include media('<=tablet') {
+  .footer-widget-2 {
+    display: block;
+  }
+}
