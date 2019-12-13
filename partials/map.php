@@ -76,12 +76,12 @@
     <div class="map__legend">
       <div class="map__legend--main">
         <h3>California</h3>
-        <p class="map__legend-row mod--office"><span><i>5,900,033</i> Sq. Ft.</span><span>Commercial Properties</span>
+        <p class="map__legend-row mod--office"><span><i>5,900,000</i> Sq. Ft.</span><span>Commercial Properties</span>
         </p>
-        <p class="map__legend-row mod--multifamily"><span><i>24,719</i> Units</span><span>Multifamily Properties</span>
+        <p class="map__legend-row mod--multifamily"><span><i>24,000</i> Units</span><span>Multifamily Properties</span>
         </p>
-        <p class="map__legend-row mod--land"><span><i>4,284</i> Acres</span><span>Land Acres</span></p>
-        <p class="map__legend-row mod--industrial"><span><i>3,545,166</i> Sq. Ft.</span><span>Industrial
+        <p class="map__legend-row mod--land"><span><i>4,000</i> Acres</span><span>Land Acres</span></p>
+        <p class="map__legend-row mod--industrial"><span><i>3,540,000</i> Sq. Ft.</span><span>Industrial
             Properties</span>
         </p>
       </div>

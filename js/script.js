@@ -171,8 +171,8 @@ function debounced(delay, fn) {
   }
 
   /*
-   *Grab marker data using title field and calculate legend
-   *      [office sqft, units, acres, ind sqft]
+   * Grab marker data using title field and calculate legend
+   * [office sqft, units, acres, ind sqft]
    */
   function calculateLegend(map, legendStats) {
     legendStats = [0, 0, 0, 0];
@@ -188,7 +188,31 @@ function debounced(delay, fn) {
     // Update legend values
     const $legendRows = $('.map__legend-row span:first-child i');
     $legendRows.each(function(index) {
-      $(this).text(legendStats[index].toLocaleString('en'));
+      const $this = $(this);
+      const currentStat = parseFloat($this.text().replace(/,/g, ''));
+
+      // animate count up when statistic changes based on map bounds
+      if ($this.html() !== legendStats[index]) {
+        $this.countTo({
+          from: currentStat,
+          to: legendStats[index],
+          speed: 500,
+          refreshInterval: 50,
+          formatter: function(value, options) {
+            value = value.toFixed(options.decimals);
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return value;
+          },
+          onUpdate: function(value) {
+            console.debug(this);
+          },
+          onComplete: function(value) {
+            console.debug(this);
+          }
+        });
+      }
+
+      // $(this).text(legendStats[index].toLocaleString('en'));
     });
   }
 
