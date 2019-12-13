@@ -13,11 +13,14 @@
   h6 {
     margin: 0;
   }
+
+  @include media('<=tablet') {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .team__item {
   h6 {
-    margin: -7px 0;
     font-size: 0.8rem;
   }
 }
