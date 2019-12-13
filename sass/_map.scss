@@ -39,7 +39,7 @@
 
 .map__legend {
   position: absolute;
-  top: 10%;
+  top: 3%;
   right: 0;
   font-family: $sans;
   max-width: 350px;
@@ -65,6 +65,10 @@
   display: flex;
   justify-content: space-between;
   margin: 0;
+
+  i {
+    font-style: normal;
+  }
 
   &.mod--office span:first-child {
     color: $office;
