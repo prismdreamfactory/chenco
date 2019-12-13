@@ -97,9 +97,16 @@
       padding-right: 1.25rem;
       max-width: 100% !important;
 
+      @include media('<=desktop') {
+        padding: 0;
+      }
+
       a {
         padding-top: 1rem;
         padding-bottom: 1rem;
+
+        @include media('<=desktop') {
+        }
       }
 
       &:nth-last-child(2) {
@@ -112,6 +119,9 @@
           font-size: 0.9rem;
           letter-spacing: 0.02em;
           text-transform: uppercase;
+        }
+        @include media('<=desktop') {
+          display: none !important;
         }
       }
 
@@ -186,6 +196,19 @@
       }
     }
   }
+
+  @include media('<=desktop') {
+    .secondary-menu {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      z-index: 1;
+
+      a {
+        padding: 0 1rem !important;
+      }
+    }
+  }
 }
 
 .secondary-navigation,
@@ -218,7 +241,7 @@
     padding: 30px;
   }
 
-  #primary-menu {
+  #site-navigation .main-nav {
     margin-top: 1rem;
   }
 }

@@ -125,7 +125,7 @@ function debounced(delay, fn) {
 
     const args = {
       minZoom: 3,
-      maxZoom: 8,
+      maxZoom: 9,
       zoom: 4,
       center: center['usa'],
       mapTypeId: google.maps.MapTypeId.ROADMAP,
