@@ -25,8 +25,7 @@ get_header(); ?>
     <?php endwhile; ?>
 
     <div class="contact container">
-    <h1><?php the_title(); ?></h1>
-        <span class="contact-line"></span>
+    <h1 class="heading"><?php the_title(); ?></h1>
         <div class="contact-people-container">
             <div class="contact-people-item">
                 <img class="contact-img" src="https://via.placeholder.com/150"/>
@@ -47,8 +46,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-        <h2>United States</h2>
-        <span class="contact-header-line" ></span>
+        <h2 class="heading">United States</h2>
         <div class="contact-location-container">
             <div class="contact-location-item">
                 <h3>Location Location</h3>
@@ -86,8 +84,7 @@ get_header(); ?>
                 <p>www.websitehere.com</p>
             </div>
         </div>
-        <h2>Asia Pacific</h2>
-        <span class="contact-header-line"></span>
+        <h2 class="heading">Asia Pacific</h2>
         <div class="contact-location-container">
             <div class="contact-location-item">
                 <h3>Location Location</h3>
