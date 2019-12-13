@@ -61,6 +61,11 @@
   background-color: #fff;
   padding: 1rem;
 }
+
+.map__legend-region {
+  color: $aegean;
+}
+
 .map__legend-row {
   display: flex;
   justify-content: space-between;
@@ -86,6 +91,10 @@
   span:first-child {
     margin-right: 1rem;
     font-weight: 700;
+  }
+
+  span:last-child {
+    color: $darkgrey;
   }
 }
 .map__legend--bottom {
@@ -233,12 +242,14 @@
 .map__info__heading {
   margin-bottom: 0.5rem;
   text-transform: none;
+  font-weight: 700;
 }
 
 .map__info__item {
   color: $orange;
   font-family: $sans;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  font-weight: 700;
 
   span {
     color: $orange;
