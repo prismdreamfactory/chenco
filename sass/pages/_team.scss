@@ -1,5 +1,9 @@
 .team-header {
   max-width: 75vh;
+
+  @include media('<=tablet') {
+    max-width: 100%;
+  }
 }
 
 .team-container {
