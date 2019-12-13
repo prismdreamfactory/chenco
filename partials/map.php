@@ -30,6 +30,10 @@
             $lat = get_sub_field('latitude');
             $lng = get_sub_field('longitude');
             $type = get_field('asset_type');
+            $units = get_field('units');
+            $sqft = get_field('sqft');
+            $acres = get_field('acres');
+
             $current = get_field('current_property', false, false);
 
             if ($type['value'] == 'O') {
@@ -52,14 +56,14 @@
           <h3 class="map__info__heading"><?php echo $type['label']; ?>
           </h3>
           <p class="map__info__item">-
-            <?php if (get_field('units')) : ?>
-            <span class="units"><?php the_field('units') ?> Units</span>
+            <?php if ($units) : ?>
+            <span class="units"><?php echo number_format($units); ?> Units</span>
             <?php endif; ?>
-            <?php if (get_field('sqft')) : ?>
-            <span class="sqft"><?php the_field('sqft'); ?> Sq. Ft.</span>
+            <?php if ($sqft) : ?>
+            <span class="sqft"><?php echo number_format($sqft); ?> Sq. Ft.</span>
             <?php endif; ?>
-            <?php if (get_field('acres')) : ?>
-            <span class="acres"><?php the_field('acres') ?> Acres</span>
+            <?php if ($acres) : ?>
+            <span class="acres"><?php echo number_format($acres); ?> Acres</span>
             <?php endif; ?>
           </p>
 
@@ -75,7 +79,7 @@
 
     <div class="map__legend">
       <div class="map__legend--main">
-        <h3>California</h3>
+        <h3 class="map__legend-region">United States</h3>
         <p class="map__legend-row mod--office"><span><i>5,900,000</i> Sq. Ft.</span><span>Commercial Properties</span>
         </p>
         <p class="map__legend-row mod--multifamily"><span><i>24,000</i> Units</span><span>Multifamily Properties</span>

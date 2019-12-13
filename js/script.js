@@ -83,6 +83,11 @@ function debounced(delay, fn) {
     southeast: [31.082342, -82.767718],
     northeast: [38.56669, -76.621757]
   };
+  const countryNames = {
+    usa: 'United States',
+    global: 'Global',
+    asia: 'Asia'
+  };
 
   /*
    *  newMap
@@ -321,6 +326,7 @@ function debounced(delay, fn) {
   /* Top location tabs to recenter map */
   function initLocationTabs(map) {
     const $tabs = $('.map__tab');
+    const $region = $('.map__legend-region');
 
     $tabs.each(function() {
       $(this).on('click', () => {
@@ -328,6 +334,8 @@ function debounced(delay, fn) {
 
         $tabs.removeClass('mod--active');
         $(this).addClass('mod--active');
+
+        $region.text(countryNames[country]);
 
         country === 'global' ? map.setZoom(4) : map.setZoom(5);
         map.setCenter(center[country]);
