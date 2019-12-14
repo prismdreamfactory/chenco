@@ -69,6 +69,11 @@ function chenco_acf_init()
 }
 
 add_theme_support('customer-area.stylesheet');
+// add_theme_support('customer-area.navigation-menu');
+add_theme_support('customer-area.library.jquery.select2', array('files', 'markup'));
+add_theme_support('customer-area.library.bootstrap.dropdown');
+add_theme_support('customer-area.library.bootstrap.transition');
+add_theme_support('customer-area.library.bootstrap.collapse');
 
 /**
  * WP All Import hook to geocode provided address into lat and lng
