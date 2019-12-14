@@ -4,8 +4,12 @@
   }
 }
 
+.firm__heading {
+  font-family: $sans;
+}
+
 .firm__subheading {
-  font-size: 1rem;
+  // font-size: 1rem;
 }
 
 .firm__section--top {
@@ -17,6 +21,11 @@
   img {
     height: 100%;
   }
+
+  @include media('<=tablet') {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 
 .performance__section {
@@ -27,6 +36,7 @@
     margin: 0 auto;
     display: block;
     padding: 2rem 0;
+    width: 100%;
   }
 }
 
@@ -34,6 +44,10 @@
   display: grid;
   grid-template-columns: 35% 55%;
   grid-column-gap: 10%;
+
+  @include media('<=desktop') {
+    display: block;
+  }
 }
 
 .business__section {

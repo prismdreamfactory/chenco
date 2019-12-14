@@ -3,7 +3,7 @@ p {
   font-family: $serif;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.9;
 
   @include media('≤tablet') {
     line-height: 1.6;
@@ -17,6 +17,7 @@ p {
 
 a {
   font-family: $sans;
+  color: $aegean;
 
   &:hover {
     opacity: 0.8;
@@ -39,6 +40,11 @@ h1 {
 
 h2 {
   font-weight: 700;
+
+  &.heading {
+    font-weight: 700;
+    letter-spacing: $letter-spacing;
+  }
 }
 
 .sans {

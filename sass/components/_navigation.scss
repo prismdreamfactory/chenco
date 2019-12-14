@@ -97,7 +97,7 @@
       padding-right: 1.25rem;
       max-width: 100% !important;
 
-      @include media('<=desktop') {
+      @media (max-width: 1500px) {
         padding: 0;
       }
 

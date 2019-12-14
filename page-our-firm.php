@@ -35,7 +35,7 @@ get_header(); ?>
           </li>
           <li class="tab" data-tab="2">
             <img src="/wp-content/uploads/2019/12/noun_performance_1650786.png" class="tab__icon" />
-            <span>Our Performance</span>
+            <span>Our Edge</span>
           </li>
           <li class="tab" data-tab="3">
             <img src="/wp-content/uploads/2019/12/noun_funds_232470.png" class="tab__icon" />
@@ -54,9 +54,10 @@ get_header(); ?>
             <section class="firm__section">
               <div class="firm__section--top">
                 <div class="">
-                  <h2 class="heading">Our Vision</h2>
+                  <h2 class="firm__heading heading">Our Vision</h2>
 
-                  <h3 class="firm__subheading">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua irure</h3>
+                  <p class="firm__subheading highlight">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua
+                    irure</p>
                   <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
                     exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
                     incididunt.</p>
@@ -90,7 +91,8 @@ get_header(); ?>
             <section class="fund__section">
               <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
               <div class="">
-                <p>Our firm has an unparalleled local market presence and deep experience across the U.S. and Asia. Our
+                <p class="highlight">Our firm has an unparalleled local market presence and deep experience across the
+                  U.S. and Asia. Our
                   multi-strategy platform provides investors with a diverse array of funds and products. We also create
                   funding and operational solutions for our investment partners and portfolio companies across the
                   world.</p>
@@ -110,7 +112,7 @@ get_header(); ?>
         <div class="tab-content" data-content="4">
           <section class="business__section">
             <div class="container">
-              <h2 class="heading alt center">Our Businesses</h2>
+              <h2 class="firm__heading heading alt center">Our Businesses</h2>
 
               <h3 class="firm__subheading">Real Estate Fund Management</h3>
               <p>With over 28 years of industry experience, we have access to nationwide real estate investments
