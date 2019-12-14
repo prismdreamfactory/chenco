@@ -158,7 +158,12 @@ function debounced(delay, fn) {
         $options.removeClass('mod--active');
         $this.addClass('mod--active');
 
-        removeMarkers(map.markers);
+        for (let i = 0; i < map.markers.length; i++) {
+          map.markers[i].setMap(null);
+        }
+
+        map.markers = [];
+
         showCurrent ? addMarkers($currentMarkers, map) : addMarkers($historicalMarkers, map);
         calculateLegend(map, legendStats);
       });
@@ -241,11 +246,9 @@ function debounced(delay, fn) {
     });
   }
 
-  function removeMarkers(markers) {
-    for (let i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
-  }
+  // function removeMarkers(markers) {
+
+  // }
 
   /*
    *  addMarkers
