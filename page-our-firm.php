@@ -61,7 +61,7 @@ get_header(); ?>
                   <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
                     exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
                     incididunt.</p>
-                  <a href="#">Meet Our Industry Executives</a>
+                  <div class="link mod--dark"><a href="#">Meet Our Industry Executives</a></div>
                 </div>
                 <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
               </div>
