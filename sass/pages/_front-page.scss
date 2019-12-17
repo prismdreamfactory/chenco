@@ -138,15 +138,12 @@
 
 .front-project {
   grid-area: bot-right;
+  padding: 2rem;
   a,
   a:visited {
     color: #fff;
   }
   h1 {
     color: #26517c;
-  }
-
-  @include media('<=tablet') {
-    padding: 2rem;
   }
 }
