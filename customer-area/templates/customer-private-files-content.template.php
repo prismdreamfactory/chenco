@@ -22,12 +22,15 @@
 <?php /** @var int $current_page */ ?>
 
 <?php
-$current_addon_slug = 'customer-private-files';
-$current_addon_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, 'fa fa-file');
-$current_addon = cuar_addon($current_addon_slug);
-$post_type = $current_addon->get_friendly_post_type();
-
 global $current_user;
+
+// $current_addon_slug = 'customer-private-files';
+// $current_addon_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, 'fa fa-file');
+// $current_addon = cuar_addon($current_addon_slug);
+// $post_type = $current_addon->get_friendly_post_type();
+
+$search = cuar_addon('customer-search');
+// var_dump($search);
 ?>
 
 <div class="investor__files">
@@ -38,30 +41,32 @@ global $current_user;
 
   <h3>Documents</h3>
 
-  <div></div>
 
-  <table class="portal__files" summary="Investments">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Investor</th>
-        <th>Investment</th>
-        <th>Document Name</th>
-        <th>Investment</th>
-        <th>Download</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-      while ($content_query->have_posts()) {
-        $content_query->the_post();
-        global $post;
 
-        include($item_template);
-      }
-      ?>
-    </tbody>
-  </table>
+  <div class="table__scroll">
+    <table class="investor__files" summary="Investments">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Investor</th>
+          <th>Investment</th>
+          <th>Document Name</th>
+          <th>Document Type</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        while ($content_query->have_posts()) {
+          $content_query->the_post();
+          global $post;
+
+          include($item_template);
+        }
+        ?>
+      </tbody>
+    </table>
+  </div>
 
 </div>
 

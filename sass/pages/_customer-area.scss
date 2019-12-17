@@ -6,15 +6,28 @@
     font-weight: 400;
     font-size: 3rem;
     text-transform: capitalize;
+
+    @include media('<=tablet') {
+      margin: 1rem 0;
+      font-size: 1.75rem;
+    }
   }
   h2 {
     font-weight: 400;
     margin: 0;
     position: relative;
     bottom: -5px;
+
+    @include media('<=tablet') {
+      font-size: 1.1rem;
+    }
   }
   h3 {
     font-size: 1.5rem;
+
+    @include media('<=tablet') {
+      font-size: 1.1rem;
+    }
   }
 }
 
@@ -22,6 +35,10 @@
   display: relative;
   background: #f4f4f4;
   min-height: 100vh;
+
+  @include media('<=tablet') {
+    min-height: 100%;
+  }
 }
 
 .investor__main {
@@ -29,6 +46,31 @@
   left: 220px;
   width: calc(100% - 280px);
   padding: 30px;
+  box-sizing: border-box;
+
+  @include media('<=tablet') {
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.table__scroll {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.investor__search {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.investor__files {
+  th,
+  td {
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
 }
 
 .investor__sidebar {
@@ -39,11 +81,20 @@
   color: #fff;
   padding: 30px;
   box-sizing: border-box;
+
+  @include media('<=tablet') {
+    left: -220px;
+  }
 }
 
 .investor__header {
   display: flex;
   align-items: center;
+
+  @include media('<=tablet') {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 
 .investor__nav {
@@ -93,9 +144,16 @@
   li {
     float: left;
     margin-left: 1rem;
+    font-weight: 700;
 
     &.active {
-      font-weight: 700;
+      a {
+        color: $aegean;
+      }
+    }
+
+    a {
+      color: $darkgrey;
     }
   }
 }

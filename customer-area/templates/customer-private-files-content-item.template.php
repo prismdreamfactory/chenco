@@ -29,6 +29,8 @@
 
 <?php
 global $post;
+$current_addon_slug = 'customer-private-files';
+$current_addon = cuar_addon($current_addon_slug);
 
 $file_count = cuar_get_the_attached_file_count($post->ID);
 
@@ -47,20 +49,18 @@ $attachments = cuar_get_the_attached_files($post->ID);
 $attachment_count = count($attachments);
 /* only one file per download */
 $file = current($attachments);
-
-// var_dump($post);
 ?>
 
 <tr>
 
-  <th><?= get_the_date() ?></th>
+  <th><?= get_the_date('d M Y') ?></th>
   <td><?= cuar_get_the_owner(); ?></td>
   <td>Investment</td>
   <td><?php the_title(); ?></td>
   <td><?php the_field('document_type') ?></td>
   <td class="cuar-actions">
     <a href="<?php cuar_the_attached_file_link($post->ID, $file); ?>" title="<?php esc_attr_e('Get file', 'cuar'); ?>"
-      class="btn btn-default btn-sm">
+      class="btn__download">
       <span class="fa fa-download"></span>
     </a>
   </td>

@@ -13,5 +13,9 @@ $recipients = sprintf("<em>%s</em>", cuar_get_the_owner());
 ?>
 
 <aside class="investor__sidebar">
-  Yo
+  <?php
+    wp_nav_menu( array( 
+    'theme_location' => 'cuar_main_menu', 
+    'container_class' => 'investor__nav' ) ); 
+    ?>
 </aside>
