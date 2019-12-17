@@ -1,2 +1,92 @@
-body.customer-area-active .cuar-css-wrapper {
+/* variables */
+$investor-sidebar-width: 220px;
+
+/* resets */
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: $sans;
+  font-weight: 500;
+  color: $dark;
 }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  background-color: $aegean;
+  color: #fff;
+}
+
+table,
+tr {
+  border: 2px solid $darkgrey;
+}
+thead th {
+  color: #fff;
+}
+th,
+td {
+  padding: 0.5rem 1rem;
+}
+
+.investor-portal {
+  h1 {
+    font-family: $serif;
+    color: $aegean;
+    margin: 2rem 3rem 2rem 0;
+    font-weight: 400;
+    font-size: 3rem;
+    text-transform: capitalize;
+  }
+  h2 {
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    bottom: -5px;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.investor__container {
+  display: relative;
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+
+.investor__main {
+  position: relative;
+  left: 220px;
+  width: calc(100% - 280px);
+  padding: 30px;
+}
+
+.investor__sidebar {
+  position: absolute;
+  height: 100%;
+  width: 220px;
+  background-color: $aegean;
+  color: #fff;
+}
+
+.investor__header {
+  display: flex;
+  align-items: center;
+}
+
+// body.customer-area-active .cuar-css-wrapper {
+// }
