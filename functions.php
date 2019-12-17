@@ -69,7 +69,8 @@ function chenco_acf_init()
 }
 
 add_theme_support('customer-area.stylesheet');
-// add_theme_support('customer-area.navigation-menu');
+add_theme_support('customer-area.navigation-menu');
+add_theme_support('customer-area.contextual-toolbar');
 add_theme_support('customer-area.library.jquery.select2', array('files', 'markup'));
 add_theme_support('customer-area.library.bootstrap.dropdown');
 add_theme_support('customer-area.library.bootstrap.transition');
@@ -119,3 +120,9 @@ function chenco_menu_item_description($item_output, $item, $depth, $args)
 
   return $item_output;
 }
+
+function custom_rewrite_basic()
+{
+  add_rewrite_rule('^investor-portal/(.*)/', 'customer-area/$matches[1]/index.php', 'top');
+}
+add_action('init', 'custom_rewrite_basic');
