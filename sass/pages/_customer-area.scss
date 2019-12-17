@@ -44,7 +44,7 @@
 .investor__main {
   position: relative;
   left: 220px;
-  width: calc(100% - 280px);
+  width: calc(100% - 220px);
   padding: 30px;
   box-sizing: border-box;
 
@@ -123,6 +123,54 @@
         font-family: $sans;
       }
     }
+  }
+}
+
+.investor__mobile {
+  background: $aegean;
+  color: #fff;
+  display: none;
+  padding: 1rem;
+
+  @include media('<=tablet') {
+    display: block;
+  }
+}
+
+#menu-wp-customer-area-menu-1 {
+  list-style: none;
+  margin: 0;
+
+  li {
+    a {
+      color: #fff;
+    }
+  }
+
+  > li {
+    a {
+      font-family: $serif;
+    }
+  }
+
+  ul.dropdown-menu {
+    list-style: none;
+
+    li {
+      a {
+        font-family: $sans;
+      }
+    }
+  }
+}
+
+.menu-toggle {
+  &:before {
+    content: '';
+    font-family: GeneratePress;
+    width: 1.28571429em;
+    text-align: center;
+    display: inline-block;
   }
 }
 

@@ -69,7 +69,7 @@ function chenco_acf_init()
 }
 
 add_theme_support('customer-area.stylesheet');
-add_theme_support('customer-area.navigation-menu');
+// add_theme_support('customer-area.navigation-menu');
 add_theme_support('customer-area.contextual-toolbar');
 add_theme_support('customer-area.library.jquery.select2', array('files', 'markup'));
 add_theme_support('customer-area.library.bootstrap.dropdown');
