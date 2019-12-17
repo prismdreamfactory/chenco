@@ -1,47 +1,3 @@
-/* variables */
-$investor-sidebar-width: 220px;
-
-/* resets */
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  font-family: $sans;
-  font-weight: 500;
-  color: $dark;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-thead {
-  background-color: $aegean;
-  color: #fff;
-}
-
-table,
-tr {
-  border: 2px solid $darkgrey;
-}
-thead th {
-  color: #fff;
-}
-th,
-td {
-  padding: 0.5rem 1rem;
-}
-
 .investor-portal {
   h1 {
     font-family: $serif;
@@ -81,6 +37,8 @@ td {
   width: 220px;
   background-color: $aegean;
   color: #fff;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .investor__header {
@@ -88,5 +46,56 @@ td {
   align-items: center;
 }
 
-// body.customer-area-active .cuar-css-wrapper {
-// }
+.investor__nav {
+  > ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      a {
+        color: #fff;
+      }
+    }
+
+    > li {
+      a {
+        font-family: $serif;
+      }
+    }
+  }
+
+  ul.sub-menu {
+    list-style: none;
+
+    li {
+      a {
+        font-family: $sans;
+      }
+    }
+  }
+}
+
+.pagination {
+  padding: 2rem 0;
+  font-family: $sans;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination__current {
+  font-weight: 700;
+}
+
+.pagination__nav {
+  list-style: none;
+  margin: 0;
+
+  li {
+    float: left;
+    margin-left: 1rem;
+
+    &.active {
+      font-weight: 700;
+    }
+  }
+}

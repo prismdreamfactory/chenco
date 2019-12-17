@@ -93,32 +93,6 @@ a:visited {
   }
 }
 
-// .link {
-//   display: table;
-//   line-height: 1.2;
-//   margin-bottom: 1rem;
-//   border-bottom: 1px solid rgba(255, 255, 255, 0);
-//   transition: 0.3s ease;
-
-//   a:hover {
-//     text-decoration: none;
-//   }
-
-//   a::after {
-//     content: '›';
-//   }
-
-//   &:after {
-//     content: '';
-//     color: #fff;
-//     margin-left: 0.5rem;
-//   }
-
-//   &:hover {
-//     border-color: rgba(255, 255, 255, 1);
-//   }
-// }
-
 .link {
   display: flex;
   align-items: center;
@@ -154,4 +128,45 @@ a:visited {
       color: #1e73be;
     }
   }
+}
+
+/* table resets */
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: $sans;
+  font-weight: 500;
+  color: $dark;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  background-color: $aegean;
+  color: #fff;
+}
+
+table,
+tr {
+  border: 2px solid $darkgrey;
+}
+thead th {
+  color: #fff;
+}
+th,
+td {
+  padding: 0.5rem 1rem;
 }
