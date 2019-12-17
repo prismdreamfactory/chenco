@@ -26,11 +26,14 @@ get_header(); ?>
     
     <div class="bascom container">
         <div class="team-header">
-            <h1><?php the_title(); ?></h1>
-            <span class="front-line"></span>
+            <h1 class="heading"><?php the_title(); ?></h1>
             <p><?php the_content(); ?></p>
-
-            <p>Filter by</p>
+            <div class="bascom-filter-container">
+              <p>Filter by</p>
+              <input placeholder="Sector: All" >
+              <input  placeholder="Option" >
+              <input  placeholder="Option" >
+            </div>
         </div>
         <div class="bascom-container">
           <?php

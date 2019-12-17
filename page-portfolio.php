@@ -18,7 +18,7 @@ get_header(); ?>
      */
     do_action('generate_before_main_content'); ?>
 
-    <div class="grid-container">
+    <div class="container">
 
       <h1>Portfolio</h1>
 

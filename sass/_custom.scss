@@ -31,6 +31,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   background: transparent !important;
+  padding: 0 2rem;
+
+  @include media('≤tablet') {
+    padding: 0 1rem;
+  }
+}
+
+#page.container {
+  padding: 0;
 }
 
 .navigation-branding .site-logo img {
@@ -81,5 +90,68 @@ a,
 a:visited {
   &.btn {
     color: #fff;
+  }
+}
+
+// .link {
+//   display: table;
+//   line-height: 1.2;
+//   margin-bottom: 1rem;
+//   border-bottom: 1px solid rgba(255, 255, 255, 0);
+//   transition: 0.3s ease;
+
+//   a:hover {
+//     text-decoration: none;
+//   }
+
+//   a::after {
+//     content: '›';
+//   }
+
+//   &:after {
+//     content: '';
+//     color: #fff;
+//     margin-left: 0.5rem;
+//   }
+
+//   &:hover {
+//     border-color: rgba(255, 255, 255, 1);
+//   }
+// }
+
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  a {
+    line-height: 1.2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    transition: 0.3s ease;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+    }
+  }
+
+  &:after {
+    content: '›';
+    margin-left: 0.5rem;
+    color: #fff;
+  }
+
+  &.mod--dark {
+    a {
+      border-color: 1px solid rgba(30, 115, 190, 0);
+
+      &:hover {
+        border-color: rgba(30, 115, 190, 1);
+      }
+    }
+
+    &:after {
+      color: #1e73be;
+    }
   }
 }

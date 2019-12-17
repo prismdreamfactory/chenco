@@ -29,7 +29,27 @@ function debounced(delay, fn) {
         dots: true,
         arrows: true,
         infinite: false,
-        slidesToShow: 3
+        slidesToShow: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
       });
     }
   };
@@ -65,6 +85,30 @@ function debounced(delay, fn) {
     });
   };
 
+  /**
+   * Google map jQuery selectors and coordinates
+   */
+  const center = {
+    usa: new google.maps.LatLng(38.901187, -110.914306),
+    asia: new google.maps.LatLng(28.441223, -238.391588),
+    global: new google.maps.LatLng(40.141496, -168.588005)
+  };
+  const regionCenters = {
+    norcal: [39.781569, -122.19576],
+    socal: [32.155, -119.033081],
+    hawaii: [31.906707, -132.501246],
+    south: [30.705239, -98.67815],
+    mountain: [39.05847, -105.706326],
+    midwest: [41.65778, -90.853814],
+    southeast: [31.082342, -82.767718],
+    northeast: [38.56669, -76.621757]
+  };
+  const countryNames = {
+    usa: 'United States',
+    global: 'Global',
+    asia: 'Asia'
+  };
+
   /*
    *  newMap
    *
@@ -75,13 +119,15 @@ function debounced(delay, fn) {
 
   function newMap(styles) {
     const $el = $('#map');
-    const $markers = $el.find('.marker');
+    const $markers = $('.marker');
+    const $currentMarkers = $(`.marker[data-current=1]`);
+    const $historicalMarkers = $(`.marker[data-current=0]`);
 
     const args = {
       minZoom: 3,
-      maxZoom: 8,
-      zoom: 5,
-      center: new google.maps.LatLng(0, 0),
+      maxZoom: 9,
+      zoom: 4,
+      center: center['usa'],
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
@@ -89,24 +135,135 @@ function debounced(delay, fn) {
       styles
     };
 
-    // create map
+    // Create map
     const map = new google.maps.Map($el[0], args);
 
-    // add a markers reference
+    // Add a markers reference
     map.markers = [];
 
-    // add markers
-    $markers.each(function() {
-      addMarker($(this), map);
-    });
-
-    // center map
-    centerMap(map);
+    // Initial marker load
+    addMarkers($currentMarkers, map);
 
     initLocationTabs(map);
 
-    // return
+    const legendStats = [0, 0, 0, 0];
+
+    // Switch between current/historical
+    const $options = $('.map__switch-item');
+    $options.each(function() {
+      const $this = $(this);
+      const showCurrent = $this.data('current');
+
+      $this.on('click', function() {
+        $options.removeClass('mod--active');
+        $this.addClass('mod--active');
+
+        for (let i = 0; i < map.markers.length; i++) {
+          map.markers[i].setMap(null);
+        }
+
+        map.markers = [];
+
+        showCurrent ? addMarkers($currentMarkers, map) : addMarkers($historicalMarkers, map);
+        calculateLegend(map, legendStats);
+      });
+    });
+
+    /* zoom event */
+    // google.maps.event.addListener(map, 'zoom_changed', function() {
+    //   let zoomLevel = map.getZoom();
+    //   removeMarkers(map.markers);
+
+    //   if (zoomLevel === 5) {
+    //     for (let center in regionCenters) {
+    //       const coordinates = regionCenters[center];
+
+    //       const marker = new google.maps.Marker({
+    //         position: new google.maps.LatLng(coordinates[0], coordinates[1]),
+    //         map: map,
+    //         icon: document.location.origin + `/wp-content/themes/chenco/assets/circle.svg`
+    //       });
+
+    //       // add to array
+    //       map.markers.push(marker);
+    //     }
+    //   } else {
+    //     addMarkers($currentMarkers, map);
+    //   }
+    // });
+
+    map.addListener(
+      'bounds_changed',
+      debounced(200, () => calculateLegend(map, legendStats))
+    );
+
     return map;
+  }
+
+  /*
+   * Grab marker data using title field and calculate legend
+   * [office sqft, units, acres, ind sqft]
+   */
+  function calculateLegend(map, legendStats) {
+    legendStats = [0, 0, 0, 0];
+
+    for (let i = 0; i < map.markers.length; i++) {
+      if (map.getBounds().contains(map.markers[i].getPosition())) {
+        for (let j = 0; j < legendStats.length; j++) {
+          legendStats[j] += Number(map.markers[i].title.split(',')[j]);
+        }
+      }
+    }
+
+    // Update legend values
+    const $legendRows = $('.map__legend-row span:first-child i');
+    $legendRows.each(function(index) {
+      const $this = $(this);
+      const currentStat = parseFloat($this.text().replace(/,/g, ''));
+
+      // animate count up when statistic changes based on map bounds
+      if ($this.html() !== legendStats[index]) {
+        $this.countTo({
+          from: currentStat,
+          to: legendStats[index],
+          speed: 500,
+          refreshInterval: 50,
+          formatter: function(value, options) {
+            value = value.toFixed(options.decimals);
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return value;
+          },
+          onUpdate: function(value) {
+            console.debug(this);
+          },
+          onComplete: function(value) {
+            console.debug(this);
+          }
+        });
+      }
+
+      // $(this).text(legendStats[index].toLocaleString('en'));
+    });
+  }
+
+  // function removeMarkers(markers) {
+
+  // }
+
+  /*
+   *  addMarkers
+   *
+   *  This function will add markers
+   *
+   *  @param	$marker (jQuery element)
+   *  @param	map (Google Map object)
+   *  @return	n/a
+   */
+  function addMarkers($markers, map) {
+    $markers.each(function() {
+      const $this = $(this);
+      addMarker($this, map);
+    });
   }
 
   /*
@@ -120,25 +277,30 @@ function debounced(delay, fn) {
    */
 
   function addMarker($marker, map) {
-    const latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
+    const latlng = new google.maps.LatLng($marker.data('lat'), $marker.data('lng'));
+    const type = $marker.data('type').toLowerCase();
 
-    const rootUrl = document.location.origin;
-
-    // custom marker icons
+    // custom marker icon colors for each asset type
     const icons = {
-      // defaultIcon: {
-      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin.svg`
-      // },
-      // activeIcon: {
-      //   url: `${rootUrl}/wp-content/uploads/2019/08/Pin-active.svg`
-      // }
+      office: 'rgb(37, 79, 123)',
+      multifamily: 'rgb(191, 144, 1)',
+      land: 'rgb(87, 135, 171)',
+      industrial: 'rgb(121, 175, 153)'
+    };
+
+    // marker svg allowing options
+    const createMarker = color => {
+      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="${color}"/></svg>`;
+
+      return svg;
     };
 
     // create marker
     const marker = new google.maps.Marker({
       position: latlng,
-      map: map
-      // icon: icons.defaultIcon
+      map: map,
+      icon: createMarker(icons[type]),
+      title: $marker.data('stats').toString()
     });
 
     // add to array
@@ -147,22 +309,18 @@ function debounced(delay, fn) {
     // if marker contains HTML, add it to an infoWindow
     if ($marker.html()) {
       // create info window
-      const infowindow = new google.maps.InfoWindow({
+      let infowindow = new google.maps.InfoWindow({
         content: $marker.html(),
         maxWidth: 400
       });
 
-      let activeMarker;
-
       // show info window when marker is clicked
       google.maps.event.addListener(marker, 'click', function() {
-        this.setIcon(icons.activeIcon);
         infowindow.open(map, marker);
-        activeMarker = this;
       });
 
-      google.maps.event.addListener(infowindow, 'closeclick', function() {
-        activeMarker.setIcon(icons.defaultIcon);
+      google.maps.event.addListener(map, 'click', function(event) {
+        infowindow.close();
       });
     }
   }
@@ -175,43 +333,35 @@ function debounced(delay, fn) {
    *  @param	map (Google Map object)
    *  @return	n/a
    */
+  // function centerMap(map) {
+  // const bounds = new google.maps.LatLngBounds();
+  // loop through all markers and create bounds
+  // $.each(map.markers, function(i, marker) {
+  //   const latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+  //   bounds.extend(latlng);
+  // });
+  // const markerCluster = new MarkerClusterer(map, map.markers, {
+  //   imagePath:
+  //     'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+  // });
+  // }
 
-  function centerMap(map) {
-    const bounds = new google.maps.LatLngBounds();
-
-    // loop through all markers and create bounds
-    $.each(map.markers, function(i, marker) {
-      const latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
-
-      bounds.extend(latlng);
-    });
-
-    const markerCluster = new MarkerClusterer(map, map.markers, {
-      imagePath:
-        'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
-    });
-
-    // only 1 marker?
-    // if (map.markers.length == 1) {
-    //   // set center of map
-    //   map.setCenter(bounds.getCenter());
-    //   map.setZoom(16);
-    // } else {
-    // fit to bounds
-    map.fitBounds(bounds);
-    // }
-  }
-
+  /* Top location tabs to recenter map */
   function initLocationTabs(map) {
-    const bounds = new google.maps.LatLngBounds();
     const $tabs = $('.map__tab');
+    const $region = $('.map__legend-region');
 
     $tabs.each(function() {
       $(this).on('click', () => {
+        let country = $(this).data('center');
+
         $tabs.removeClass('mod--active');
         $(this).addClass('mod--active');
-        map.setCenter(new google.maps.LatLng(45.141496, 205.588005));
-        map.setZoom(3);
+
+        $region.text(countryNames[country]);
+
+        country === 'global' ? map.setZoom(4) : map.setZoom(5);
+        map.setCenter(center[country]);
       });
     });
   }

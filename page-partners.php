@@ -18,18 +18,16 @@ get_header(); ?>
      */
     do_action('generate_before_main_content'); ?>
 
-    <div class="grid-container">
-
-    </div>
-
     <?php while (have_posts()) : the_post(); ?>
 
-    <div class="container partners">
-      <h1 class="heading blue">Our Companies</h1>
+    <div class="partners">
+      <div class="container">
+        <h1 class="heading blue">Partners</h1>
 
-      <p>We have a group of exceptional, multi-lingual and multi-cultural professionals who can handle diverse
-        activities in our areas of endeavor. They provide full-spectrum investment and asset management services to our
-        clients, delivering attractive investment returns.</p>
+        <p>We have a group of exceptional, multi-lingual and multi-cultural professionals who can handle diverse
+          activities in our areas of endeavor. They provide full-spectrum investment and asset management services to
+          our clients, delivering attractive investment returns.</p>
+      </div>
 
       <div class="tabs tabs--alt">
         <div class="container">
@@ -59,34 +57,38 @@ get_header(); ?>
               <section class="partners__section">
                 <div class="partners__section--top">
                   <div>
-                    <p>The Bascom Group is a private eequity firm specializing in value-added multifamily, commercial,
-                      and
-                      non-performing loans and real estate related investments and operating companies.</p>
+                    <p class="highlight">The Bascom Group is a private equity firm specializing in value-added
+                      multifamily,
+                      commercial,
+                      and non-performing loans and real estate related investments and operating companies.</p>
                     <p>Based in Irvine, California, the firm is involved principally in the acquisition of multi-family
                       housing that can increase in value via remodeling, repositioning and improved management. The
-                      Bascom
-                      Group is a nationally recognized manager of distressed multi-family properties. The Bascom Group
-                      is
-                      ranked #1 in 2014 Multi-family Executive's (MFE) Top 25 Renovators List. Under the leadership of
-                      Jerry
-                      Fink and Dave Kim, the company has purchased over 63,000 apartment units since inception.</p>
+                      Bascom Group is a nationally recognized manager of distressed multi-family properties. The Bascom
+                      Group
+                      is ranked #1 in 2014 Multi-family Executive's (MFE) Top 25 Renovators List. Under the leadership
+                      of
+                      Jerry Fink and Dave Kim, the company has purchased over 63,000 apartment units since inception.
+                    </p>
                   </div>
-                  <div>
+                  <div class="partners__contact">
                     <h4>Team Lead</h4>
                     <p>Name Goes Here</p>
 
-                    <address>26 Corporate Park, Irvine, CA 92606 <br> +1 949 955-0888 <br> www.websitehere.com</address>
+                    <div class="partners__address">
+                      <address>26 Corporate Park, Irvine, CA 92606 <br> +1 949 955-0888</address>
+                      <a href="javascript:">www.websitehere.com</a>
+                    </div>
                   </div>
                 </div>
 
                 <div class="partners__section--bottom">
                   <h2>Bascom Operators</h2>
                   <div class="slick operators">
-                    <a href="#"><img src="/wp-content/uploads/2019/12/BascomNW.png" /></a>
-                    <a href="#"><img src="/wp-content/uploads/2019/12/Spirit_B.png" /></a>
-                    <a href="#"><img src="/wp-content/uploads/2019/12/REDA.png" /></a>
-                    <a href="#"><img src="/wp-content/uploads/2019/12/Milestone.png" /></a>
-                    <a href="#"><img src="/wp-content/uploads/2019/12/realm-logo-B.png" /></a>
+                    <img src="/wp-content/uploads/2019/12/BascomNW.png" />
+                    <img src="/wp-content/uploads/2019/12/Spirit_B.png" />
+                    <img src="/wp-content/uploads/2019/12/REDA.png" />
+                    <img src="/wp-content/uploads/2019/12/Milestone.png" />
+                    <img src="/wp-content/uploads/2019/12/realm-logo-B.png" />
                   </div>
 
                   <a href="#" class="btn">Learn More</a>
@@ -121,11 +123,13 @@ get_header(); ?>
           </div>
           <div class="tab-content" data-content="3">
             <div class="container">
-
+              <section class="partners__section"></section>
             </div>
           </div>
           <div class="tab-content" data-content="4">
-
+            <div class="container">
+              <section class="partners__section"></section>
+            </div>
           </div>
         </div>
       </div>

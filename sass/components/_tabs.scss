@@ -5,6 +5,10 @@
   justify-content: space-around;
   flex-direction: row;
   padding: 20px 0 0 0;
+
+  @include media('<=tablet') {
+    flex-wrap: wrap;
+  }
 }
 .tab {
   display: flex;
@@ -17,6 +21,7 @@
   padding-bottom: 1rem;
   position: relative;
   border-bottom: 1px solid $darkgrey;
+  text-align: center;
 
   span,
   img {
@@ -64,6 +69,18 @@
     cursor: pointer;
     opacity: 1;
   }
+
+  @include media('<=tablet') {
+    width: 50%;
+    border-bottom: 0;
+
+    &.active {
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+  }
 }
 
 .tab__icon {
@@ -72,10 +89,15 @@
 
 .tab-content {
   display: none;
+  height: 80vh;
   // background-color: #efefef;
 
   section {
     padding: 4rem 0;
+
+    @include media('<=tablet') {
+      padding: 2rem 0;
+    }
   }
 
   &.active {

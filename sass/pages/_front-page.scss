@@ -49,8 +49,6 @@
 }
 
 .front-summary-text {
-  display: flex;
-  flex-direction: column;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -62,16 +60,7 @@
 }
 
 .front-summary-link {
-  display: flex;
-  flex-direction: column;
-}
-
-.link {
-  a::after {
-    content: '›';
-    color: #fff;
-    margin-left: 1rem;
-  }
+  display: block;
 }
 
 .front-news {
