@@ -129,7 +129,7 @@ get_header(); ?>
               <?php if (get_field('our_funds_image')) : ?>
               <img src="<?php the_field('our_funds_image'); ?>" />
               <?php endif; ?>
-              <div class="">
+              <div class="fund__section__text">
                 <p class="highlight">
                   <?php the_field('our_funds_highlight'); ?>
                 </p>

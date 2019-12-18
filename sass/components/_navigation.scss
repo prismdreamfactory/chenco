@@ -28,14 +28,14 @@
           letter-spacing: 0.01px;
           -webkit-font-smoothing: antialiased;
 
-          @include media('≤tablet') {
+          @include media('<=tablet') {
             display: none;
           }
         }
       }
     }
 
-    @include media('>=tablet') {
+    @include media('>tablet') {
       ul {
         display: flex;
         justify-content: flex-end;
@@ -71,9 +71,15 @@
       }
     }
 
-    @media (max-width: 1024px) {
+    @include media('<=desktop') {
       ul li {
         max-width: 25vw;
+      }
+    }
+
+    @include media('<=tablet') {
+      ul li {
+        max-width: 100%;
       }
     }
   }

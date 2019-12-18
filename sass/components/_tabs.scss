@@ -6,7 +6,7 @@
   flex-direction: row;
   padding: 20px 0 0 0;
 
-  @include media('<=tablet') {
+  @include media('<tablet') {
     flex-wrap: wrap;
   }
 }
@@ -88,7 +88,7 @@
     opacity: 1;
   }
 
-  @include media('<=tablet') {
+  @include media('<tablet') {
     width: 50%;
     border-bottom: 0;
 
@@ -118,7 +118,7 @@
   section {
     padding: 4rem 0;
 
-    @include media('<=tablet') {
+    @include media('<tablet') {
       padding: 2rem 0;
     }
   }
