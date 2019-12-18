@@ -36,29 +36,22 @@ get_header(); ?>
             </div>
         </div>
         <div class="bascom-container">
-          <?php
-          $loop = new WP_Query(
-            array(
-              'posts_per_page' => 8,
-            )
-          );
-          while ($loop->have_posts()) : $loop->the_post(); ?>
-
+          
+          <?php while (have_rows('bascom')) : the_row(); ?>
             <div class="bascom__item">
-                <img src="https://via.placeholder.com/80" alt="img"/>
-                <h3>Company Name LLC</h3>
+                <img src="<?php the_sub_field('image'); ?>" alt="img"/>
+                <h3><?php the_sub_field('company'); ?></h3>
                 <div class="bascom__item__description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p><?php the_sub_field('description'); ?></p>
                     <div class="bascom-info">
-                        <p>12345 Address Goes Here, 205</p>
-                        <p>City, State 12345</p>
-                        <p>+1 234-567-8901</p>
-                        <p>www.website.com</p>
+                        <p><?php the_sub_field('address'); ?></p>
+                        <p>+<?php the_sub_field('phone'); ?></p>
+                        <p><?php the_sub_field('website'); ?></p>
                     </div>
                 </div>
             </div>
-
-          <?php endwhile; ?>
+            <?php endwhile; ?>
+            
         </div>
     </div>
 
