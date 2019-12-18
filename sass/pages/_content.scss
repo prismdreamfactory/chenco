@@ -1,0 +1,16 @@
+.one-container:not(.page) .inside-article {
+  padding: 0 0 10px 0;
+
+  @include media('<=tablet') {
+    padding: 2rem;
+  }
+}
+
+.inside-article {
+  h2 {
+    margin-bottom: 1rem;
+  }
+  span {
+    margin: 1rem 0 2rem;
+  }
+}
