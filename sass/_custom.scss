@@ -117,7 +117,7 @@ a:visited {
 
   &.mod--dark {
     a {
-      border-color: 1px solid rgba(30, 115, 190, 0);
+      border-bottom: 1px solid rgba(30, 115, 190, 0);
 
       &:hover {
         border-color: rgba(30, 115, 190, 1);
@@ -126,6 +126,12 @@ a:visited {
 
     &:after {
       color: #1e73be;
+    }
+  }
+
+  &.mod--underlined {
+    a {
+      border-bottom: 1px solid rgba(30, 115, 190, 1);
     }
   }
 }

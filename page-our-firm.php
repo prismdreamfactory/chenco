@@ -43,7 +43,7 @@ get_header(); ?>
           </li>
           <li class="tab tab--alt" data-tab="4">
             <img src="/wp-content/uploads/2019/12/noun_business-to-business_2343503.png" class="tab__icon" />
-            <span>Our Business</span>
+            <span>Our Businesses</span>
           </li>
         </ul>
       </div>
@@ -52,59 +52,88 @@ get_header(); ?>
         <div class="tab-content active" data-content="1">
           <div class="container">
             <section class="firm__section">
-              <div class="firm__section--top">
-                <div class="">
-                  <h2 class="firm__heading heading">Our Vision</h2>
-
-                  <p class="firm__subheading highlight">Excepteur ut fugiat reprehenderit ipsum amet pariatur aliqua
-                    irure</p>
-                  <p>Reprehenderit dolore aute id pariatur laborum sint voluptate cupidatat sit elit qui officia. Nisi
-                    exercitation deserunt aliqua excepteur nostrud duis dolore eu duis sit est velit dolor. Do
-                    incididunt.</p>
-                  <div class="link mod--dark"><a href="#">Meet Our Industry Executives</a></div>
-                </div>
-                <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
-              </div>
-              <div class="firm__section--bottom">
-                <p>Enim consequat amet eu eiusmod tempor elit quis et sint. Non dolor aute nisi anim aliqua dolor aliqua
-                  ea.
-                  Qui ut irure nulla et commodo duis laboris et qui exercitation in. Ipsum cillum esse incididunt amet
-                  anim
-                  nisi ad mollit officia excepteur aute nulla et. Velit aliquip dolor pariatur ullamco commodo. Ipsum
-                  tempor
-                  velit ex velit eiusmod ipsum minim incididunt duis Lorem. Qui ea et sint id fugiat fugiat.</p>
-              </div>
+              <?php the_content(); ?>
             </section>
           </div>
         </div>
         <div class="tab-content tab-content--alt" data-content="2">
           <section class="edge__section">
             <div class="container">
-              <img src="/wp-content/uploads/2019/12/OurPerformance_Graphic.png" />
-              <p>Nostrud ipsum quis cupidatat commodo irure eiusmod nostrud ex fugiat consequat. Voluptate eu
-                adipisicing velit deserunt deserunt laboris. Aliqua fugiat aliqua nostrud dolore.</p>
+
+              <div class="edge__row edge__top">
+                <div class="edge__row">
+                  <div class="edge__items">
+
+                    <?php if (have_rows('our_edge_top_row')) : ?>
+                    <?php while (have_rows('our_edge_top_row')) : the_row(); ?>
+                    <div class="edge__stat">
+                      <?php if (get_sub_field('image')) : ?>
+                      <img src="<?php the_sub_field('image'); ?>" />
+                      <?php endif; ?>
+                      <h2>
+                        <?php the_sub_field('text'); ?>
+                      </h2>
+                    </div>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="edge__row edge__middle">
+                <h2 class="heading center sans">Our Track Record</h2>
+                <div class="edge__items">
+
+                  <?php if (have_rows('our_edge_middle_row')) : ?>
+                  <?php while (have_rows('our_edge_middle_row')) : the_row(); ?>
+
+                  <div class="edge__stat">
+                    <h3>
+                      <?php the_sub_field('large_text'); ?>
+                      <span><?php the_sub_field('text'); ?> </span>
+                    </h3>
+                  </div>
+                  <?php endwhile; ?>
+                  <?php endif; ?>
+
+                </div>
+              </div>
+
+              <div class="edge__row edge__bottom">
+                <h2 class="heading center sans">Our Strengths</h2>
+                <div class="edge__items">
+
+                  <?php if (have_rows('our_edge_bottom_row')) : ?>
+                  <?php while (have_rows('our_edge_bottom_row')) : the_row(); ?>
+
+                  <div class="edge__stat">
+                    <?php if (get_sub_field('image')) : ?>
+                    <img src="<?php the_sub_field('image'); ?>" />
+                    <?php endif; ?>
+                    <h2><?php the_sub_field('heading'); ?></h2>
+                    <p><?php the_sub_field('text'); ?></p>
+                  </div>
+
+                  <?php endwhile; ?>
+                  <?php endif; ?>
+                </div>
+              </div>
+
             </div>
           </section>
         </div>
         <div class="tab-content tab-content--alt" data-content="3">
           <section class="fund__section">
             <div class="container">
-              <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
+              <?php if (get_field('our_funds_image')) : ?>
+              <img src="<?php the_field('our_funds_image'); ?>" />
+              <?php endif; ?>
               <div class="">
-                <p class="highlight">Our firm has an unparalleled local market presence and deep experience across the
-                  U.S. and Asia. Our
-                  multi-strategy platform provides investors with a diverse array of funds and products. We also create
-                  funding and operational solutions for our investment partners and portfolio companies across the
-                  world.</p>
-                <p>Pacific Rim Properties Fund Series. This group of funds started in 1992 as a conduit for friends and
-                  family to invest in U.S. real estate. Chenco has built co-investment relationships with numerous
-                  top-tier institutional investors in the United States. Pacific Rim Properties Funds focus on
-                  value-added strategy in commercial real estate, and primarily invest in properties in the west coast
-                  and the Sun Belt region.</p>
-                <p>Pacific Rim Properties Land Fund Series: The Land Fund Series focuses on residential land
-                  development, capitalizing on the opportunity shortage of single-family residential lots in the United
-                  States. The strategy is to purchase raw land, acquire development permits, and complete infrastructure
-                  prior to disposition.</p>
+                <p class="highlight">
+                  <?php the_field('our_funds_highlight'); ?>
+                </p>
+                <?php the_field('our_funds_text'); ?>
               </div>
             </div>
           </section>
@@ -114,15 +143,7 @@ get_header(); ?>
             <div class="container">
               <h2 class="firm__heading heading alt center">Our Businesses</h2>
 
-              <h3 class="firm__subheading">Real Estate Fund Management</h3>
-              <p>With over 28 years of industry experience, we have access to nationwide real estate investments
-                and financing opportunities. We continue building close relationships with clients in the United
-                States and the Greater China Region. We deliver attractive risk-adjusted returns to our clients.</p>
-
-              <h3 class="firm__subheading">Real Estate Venture Capital</h3>
-              <p>We have co-founded several successful companies, including The Bascom Group, and Premier
-                Workspaces. We continue to actively pursue venture capital investments in the United States and Asia.
-              </p>
+              <?php the_field('our_businesses_text'); ?>
             </div>
           </section>
         </div>
@@ -133,24 +154,24 @@ get_header(); ?>
 
     <?php endwhile;
 
-                  /**
-                   * generate_after_main_content hook.
-                   *
-                   * @since 0.1
-                   */
-                  do_action('generate_after_main_content');
+                                /**
+                                 * generate_after_main_content hook.
+                                 *
+                                 * @since 0.1
+                                 */
+                                do_action('generate_after_main_content');
     ?>
   </main><!-- #main -->
 </div><!-- #primary -->
 
 <?php
-                  /**
-                   * generate_after_primary_content_area hook.
-                   *
-                   * @since 2.0
-                   */
-                  do_action('generate_after_primary_content_area');
+                                /**
+                                 * generate_after_primary_content_area hook.
+                                 *
+                                 * @since 2.0
+                                 */
+                                do_action('generate_after_primary_content_area');
 
-                  generate_construct_sidebars();
+                                generate_construct_sidebars();
 
-                  get_footer();
+                                get_footer();
