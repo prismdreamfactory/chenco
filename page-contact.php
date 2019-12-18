@@ -25,103 +25,34 @@ get_header(); ?>
     <?php endwhile; ?>
 
     <div class="contact container">
-    <h1 class="heading"><?php the_title(); ?></h1>
+        <h1 class="heading"><?php the_title(); ?></h1>
         <div class="contact-people-container">
-            <div class="contact-people-item">
-                <img class="contact-img" src="https://via.placeholder.com/150"/>
-                <div class="contact-people-info">
-                    <h3>United States</h3>
-                    <p>Andrew Chen</p>
-                    <p>+1 702 889-1818</p>
-                    <p>#239</p>
+            <?php while (have_rows('person')): the_row(); ?>
+                <div class="contact-people-item">
+                    <img class="contact-img" src="<?php the_sub_field('image'); ?>"/>
+                    <div class="contact-people-info">
+                        <h3><?php the_sub_field('region'); ?></h3>
+                        <p><?php the_sub_field('name'); ?></p>
+                        <p>+<?php the_sub_field('phone'); ?></p>
+                        <p>#<?php the_sub_field('extension'); ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="contact-people-item">
-                <img class="contact-img" src="https://via.placeholder.com/150"/>
-                <div class="contact-people-info">
-                    <h3>Asia Pacific</h3>
-                    <p>Jack Lin</p>
-                    <p>+1 886 2-2778-1113</p>
-                    <p>#338</p>
+            <?php endwhile; ?>
+        </div>
+
+        <?php while (have_rows('contact_locations')): the_row(); ?>
+            <h2 class="heading"><?php the_sub_field('region'); ?></h2>
+                <div class="contact-location-container">
+                    <?php while (have_rows('region_info')): the_row(); ?>
+                        <div class="contact-location-item">
+                            <h3><?php the_sub_field('location'); ?></h3>
+                                <p class="contact-address"><?php the_sub_field('address'); ?></p>
+                                <p>+<?php the_sub_field('phone'); ?></p>
+                                <p><?php the_sub_field('website'); ?></p>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
-            </div>
-        </div>
-        <h2 class="heading">United States</h2>
-        <div class="contact-location-container">
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-        </div>
-        <h2 class="heading">Asia Pacific</h2>
-        <div class="contact-location-container">
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-            <div class="contact-location-item">
-                <h3>Location Location</h3>
-                <p>26 Coporate Park,</p>
-                <p>Irvine, CA 92606</p>
-                <p>+1 949 955-0888</p>
-                <p>www.websitehere.com</p>
-            </div>
-        </div>
+        <?php endwhile; ?>
     </div>
 
     <?php
