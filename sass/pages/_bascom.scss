@@ -1,5 +1,5 @@
 .bascom-filter-container {
-  display: grid;
+  display: none;
   grid-template-columns: 90px 0fr 0fr 110px;
   grid-column-gap: 0.5rem;
   margin: 5rem 0;
@@ -27,6 +27,11 @@
     padding: 1rem;
   }
 
+  img {
+    width: 80px;
+    height: 80px;
+  }
+
   @include media('<tablet') {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -44,6 +49,7 @@
 }
 
 .bascom-info {
+  max-width: 140px;
   p {
     font-size: 0.8rem;
     margin: 0;
