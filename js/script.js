@@ -85,7 +85,7 @@ function debounced(delay, fn) {
       });
     }
 
-    // $('[data-tab=4]').trigger('click');
+    // $('[data-tab=2]').trigger('click');
   };
 
   const loginModal = () => {
@@ -102,10 +102,11 @@ function debounced(delay, fn) {
   /**
    * Google map jQuery selectors and coordinates
    */
+
   const center = {
-    usa: new google.maps.LatLng(38.901187, -110.914306),
-    asia: new google.maps.LatLng(28.441223, -238.391588),
-    global: new google.maps.LatLng(40.141496, -168.588005)
+    usa: [38.901187, -110.914306],
+    asia: [28.441223, -238.391588],
+    global: [40.141496, -168.588005]
   };
   const regionCenters = {
     norcal: [39.781569, -122.19576],
@@ -141,7 +142,7 @@ function debounced(delay, fn) {
       minZoom: 3,
       maxZoom: 9,
       zoom: 4,
-      center: center['usa'],
+      center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
@@ -375,7 +376,7 @@ function debounced(delay, fn) {
         $region.text(countryNames[country]);
 
         country === 'global' ? map.setZoom(4) : map.setZoom(5);
-        map.setCenter(center[country]);
+        map.setCenter(new google.maps.LatLng(center[country][0], center[country][1]));
       });
     });
   }
