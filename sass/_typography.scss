@@ -3,11 +3,11 @@ p {
   font-family: $serif;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.9;
 
   @include media('≤tablet') {
     line-height: 1.6;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -17,6 +17,7 @@ p {
 
 a {
   font-family: $sans;
+  color: $aegean;
 
   &:hover {
     opacity: 0.8;
@@ -27,15 +28,31 @@ a {
 h1 {
   font-family: $sans;
   font-weight: 700;
+  letter-spacing: $letter-spacing;
 
   &.heading {
     font-size: 2rem;
     font-family: $serif;
+    text-transform: none;
+    font-weight: 400;
   }
 }
 
 h2 {
   font-weight: 700;
+
+  &.heading {
+    font-weight: 700;
+    letter-spacing: $letter-spacing;
+  }
+}
+
+.sans {
+  font-family: $sans;
+}
+
+.serif {
+  font-family: $serif;
 }
 
 .heading {
@@ -71,4 +88,22 @@ h2 {
     justify-content: center;
     align-items: center;
   }
+}
+
+.highlight {
+  font-family: $serif;
+  color: $aegean;
+  font-size: 1.6rem;
+  margin-bottom: 1em;
+  line-height: 1.6;
+
+  @include media('<=tablet') {
+    font-size: 1.2rem;
+  }
+}
+
+address {
+  font-style: normal;
+  font-family: $sans;
+  margin-bottom: 0;
 }
