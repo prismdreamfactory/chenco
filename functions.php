@@ -18,6 +18,7 @@ add_action('wp_enqueue_scripts', 'generatepress_parent_theme_enqueue_styles');
 function generatepress_parent_theme_enqueue_styles()
 {
   wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Domine:400,700|Maven+Pro:400,500,700&display=swap', false);
+  wp_enqueue_style('select2-style', '//cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css', '4.0.12', false);
   wp_enqueue_style('slick-style', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', '1.8.1', false);
   wp_enqueue_style('slick-theme', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css', '1.8.1', false);
   // wp_enqueue_style('fancybox-style', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', '3.5.7', 'all');
@@ -28,6 +29,7 @@ function generatepress_parent_theme_enqueue_styles()
 
   // wp_enqueue_script('google-maps-clusterer', '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array(), false, false);
   wp_enqueue_script('google-maps', '//maps.googleapis.com/maps/api/js?key=' . getenv('GOOGLE_API_KEY'), array(), false, false);
+  wp_enqueue_script('select2', '//cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js', array('jquery'), false, false);
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', array('jquery'), false, false);
   wp_enqueue_script('countto', '//cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js', array('jquery'), false, false);
   // wp_enqueue_script('fancybox', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), false, false);
@@ -46,7 +48,7 @@ function generatepress_parent_theme_enqueue_styles()
 add_filter('generate_copyright', 'chenco_custom_copyright');
 function chenco_custom_copyright()
 {
-  ?>
+?>
 © 2019 Chenco Holdings. All Rights Reserved.
 <?php
 }
@@ -123,6 +125,8 @@ function chenco_menu_item_description($item_output, $item, $depth, $args)
 
 function custom_rewrite_basic()
 {
-  add_rewrite_rule('^investor-portal/(.*)/', 'customer-area/$matches[1]/index.php', 'top');
+  // add_rewrite_rule('investor-portal/(.*)/', 'customer-area/$matches[1]/index.php', 'top');
+  // add_rewrite_rule('customer-area/(.*)', 'investor-portal/$matches[1]/index.php', 'top');
+  add_rewrite_rule('investor-portal/files/my-files/', 'customer-area/files/my-files/index.php', 'top');
 }
 add_action('init', 'custom_rewrite_basic');

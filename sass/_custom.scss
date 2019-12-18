@@ -177,3 +177,31 @@ tbody {
     font-weight: 400;
   }
 }
+
+select {
+  background: #fafafa;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 80px;
+}
+
+.select2-container--default .select2-selection--single {
+  height: 40px;
+  background-color: #fafafa;
+  border-color: #cccccc;
+  border-radius: 0;
+
+  .select2-selection__rendered {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 35px;
+}

@@ -32,7 +32,7 @@
 }
 
 .investor__container {
-  display: relative;
+  position: relative;
   background: #f4f4f4;
   min-height: 100vh;
 
@@ -63,6 +63,24 @@
 .investor__search {
   display: flex;
   padding: 1rem 0;
+}
+
+.cuar-search-form {
+  display: flex;
+  align-items: flex-end;
+
+  label {
+    font-family: $sans;
+    font-weight: 700;
+  }
+
+  input {
+    margin-right: 1rem;
+  }
+
+  .select2 {
+    margin-right: 1rem;
+  }
 }
 
 .investor__files {

@@ -18,7 +18,7 @@ global $current_user;
   <h2>Chenco Holdings - Fund Administration</h2>
 </div>
 
-<h3>Documents</h3>
+<h3>Search</h3>
 
 <?php $this->print_search_form(); ?>
 

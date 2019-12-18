@@ -42,24 +42,20 @@ foreach ($sidebar_attributes as $att => $v) {
   </div>
 
   <div class="investor__container <?php echo $content_class; ?>">
-
-    <?php if ($this->has_page_sidebar()) : ?>
-    <?php $this->print_page_sidebar($args, $shortcode_content); ?>
+    <?php /* $this->print_page_sidebar($args, $shortcode_content); */ ?>
+    <aside class="investor__sidebar">
+      <?php
+                                  wp_nav_menu(array(
+                                    'theme_location' => 'cuar_main_menu',
+                                    'container_class' => 'investor__nav'
+                                  ));
+      ?>
+    </aside>
 
     <div class="investor__main <?php echo $content_class; ?>">
       <?php $this->print_page_content($args, $shortcode_content); ?>
     </div>
-
-    <?php else : ?>
-    <div class="investor__main <?php echo $content_class; ?>">
-      <?php $this->print_page_content($args, $shortcode_content); ?>
-    </div>
-
-
-    <?php endif; ?>
   </div>
-
-  <div id="cuar-js-mobile-sidebar"></div>
 
   <div class="investor__footer">
     <?php $this->print_page_footer($args, $shortcode_content); ?>

@@ -373,6 +373,11 @@ function debounced(delay, fn) {
     initTabs();
     initSlider();
 
+    $('select').select2({
+      // width: 'resolve',
+      minimumResultsForSearch: 'Infinity'
+    });
+
     // if ($('body').hasClass('home')) {
     // initSlider();
     // }
