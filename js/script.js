@@ -71,6 +71,20 @@ function debounced(delay, fn) {
       });
     }
 
+    if ($('.tabs--firm').length) {
+      $('[data-tab]').on('click', function(e) {
+        if ($(this).data('tab') === 1) {
+          $(this)
+            .parent()
+            .removeClass('tabs-nav--alt');
+        } else {
+          $(this)
+            .parent()
+            .addClass('tabs-nav--alt');
+        }
+      });
+    }
+
     // $('[data-tab=4]').trigger('click');
   };
 

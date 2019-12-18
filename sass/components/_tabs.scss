@@ -10,6 +10,28 @@
     flex-wrap: wrap;
   }
 }
+
+.tabs-nav--alt {
+  .tab {
+    border: 0;
+
+    &:before,
+    &:after {
+      content: '';
+    }
+
+    &.active {
+      &:before {
+        border-color: transparent;
+      }
+
+      &:after {
+        bottom: -14px;
+      }
+    }
+  }
+}
+
 .tab {
   display: flex;
   justify-content: center;
@@ -26,10 +48,6 @@
   span,
   img {
     opacity: 0.6;
-  }
-
-  &.tab--alt {
-    border: 0;
   }
 
   &.active {
@@ -81,6 +99,10 @@
       }
     }
   }
+}
+
+.tab-content--alt {
+  background: $offwhite;
 }
 
 .tab__icon {

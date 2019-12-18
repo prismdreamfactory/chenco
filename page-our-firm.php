@@ -11,12 +11,12 @@ get_header(); ?>
 <div id="primary" <?php generate_do_element_classes('content'); ?>>
   <main id="main" <?php generate_do_element_classes('main'); ?>>
     <?php
-    /**
-     * generate_before_main_content hook.
-     *
-     * @since 0.1
-     */
-    do_action('generate_before_main_content'); ?>
+                  /**
+                   * generate_before_main_content hook.
+                   *
+                   * @since 0.1
+                   */
+                  do_action('generate_before_main_content'); ?>
 
     <div class="grid-container">
 
@@ -26,22 +26,22 @@ get_header(); ?>
 
 
 
-    <div class="tabs">
+    <div class="tabs tabs--firm">
       <div class="container">
         <ul class="tabs-nav">
           <li class="tab active" data-tab="1">
             <img src="/wp-content/uploads/2019/12/noun_firm_2274591.png" class="tab__icon" />
             <span>Our Firm</span>
           </li>
-          <li class="tab" data-tab="2">
+          <li class="tab tab--alt" data-tab="2">
             <img src="/wp-content/uploads/2019/12/noun_performance_1650786.png" class="tab__icon" />
             <span>Our Edge</span>
           </li>
-          <li class="tab" data-tab="3">
+          <li class="tab tab--alt" data-tab="3">
             <img src="/wp-content/uploads/2019/12/noun_funds_232470.png" class="tab__icon" />
             <span>Our Funds</span>
           </li>
-          <li class="tab" data-tab="4">
+          <li class="tab tab--alt" data-tab="4">
             <img src="/wp-content/uploads/2019/12/noun_business-to-business_2343503.png" class="tab__icon" />
             <span>Our Business</span>
           </li>
@@ -77,18 +77,18 @@ get_header(); ?>
             </section>
           </div>
         </div>
-        <div class="tab-content" data-content="2">
-          <div class="container">
-            <section class="performance__section">
+        <div class="tab-content tab-content--alt" data-content="2">
+          <section class="edge__section">
+            <div class="container">
               <img src="/wp-content/uploads/2019/12/OurPerformance_Graphic.png" />
               <p>Nostrud ipsum quis cupidatat commodo irure eiusmod nostrud ex fugiat consequat. Voluptate eu
                 adipisicing velit deserunt deserunt laboris. Aliqua fugiat aliqua nostrud dolore.</p>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
-        <div class="tab-content" data-content="3">
-          <div class="container">
-            <section class="fund__section">
+        <div class="tab-content tab-content--alt" data-content="3">
+          <section class="fund__section">
+            <div class="container">
               <img src="/wp-content/uploads/2019/12/OurFirm_Image.jpg" />
               <div class="">
                 <p class="highlight">Our firm has an unparalleled local market presence and deep experience across the
@@ -106,11 +106,11 @@ get_header(); ?>
                   States. The strategy is to purchase raw land, acquire development permits, and complete infrastructure
                   prior to disposition.</p>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
         <div class="tab-content" data-content="4">
-          <section class="business__section">
+          <section class="businesses__section">
             <div class="container">
               <h2 class="firm__heading heading alt center">Our Businesses</h2>
 
@@ -133,24 +133,24 @@ get_header(); ?>
 
     <?php endwhile;
 
-    /**
-     * generate_after_main_content hook.
-     *
-     * @since 0.1
-     */
-    do_action('generate_after_main_content');
+                  /**
+                   * generate_after_main_content hook.
+                   *
+                   * @since 0.1
+                   */
+                  do_action('generate_after_main_content');
     ?>
   </main><!-- #main -->
 </div><!-- #primary -->
 
 <?php
-/**
- * generate_after_primary_content_area hook.
- *
- * @since 2.0
- */
-do_action('generate_after_primary_content_area');
+                  /**
+                   * generate_after_primary_content_area hook.
+                   *
+                   * @since 2.0
+                   */
+                  do_action('generate_after_primary_content_area');
 
-generate_construct_sidebars();
+                  generate_construct_sidebars();
 
-get_footer();
+                  get_footer();

@@ -28,8 +28,9 @@
   }
 }
 
-.performance__section {
+.edge__section {
   padding: 2rem 0;
+  background-color: $offwhite;
 
   img {
     max-width: 1000px;
@@ -41,16 +42,20 @@
 }
 
 .fund__section {
-  display: grid;
-  grid-template-columns: 35% 55%;
-  grid-column-gap: 10%;
+  background-color: $offwhite;
+
+  .container {
+    display: grid;
+    grid-template-columns: 35% 55%;
+    grid-column-gap: 10%;
+  }
 
   @include media('<=desktop') {
     display: block;
   }
 }
 
-.business__section {
+.businesses__section {
   display: flex;
   justify-content: center;
   align-items: center;
