@@ -20,12 +20,12 @@ get_header(); ?>
 
     <div class="sitemap-main">
 
-      <h1 class="heading">Sitemap</h1>
+      <h1 class=" container heading">Sitemap</h1>
 
     
 
     <?php while (have_posts()) : the_post(); ?>
-    <div class="sitemap-side-container">
+    <div class="container sitemap-side-container">
       <aside>
         <h4 class="sitemap-side-title">Global Offices</h4>
         <div class="sitemap-side">
