@@ -26,7 +26,7 @@ get_header(); ?>
 
     <?php while (have_posts()) : the_post(); ?>
     <div class="container sitemap-side-container">
-      <aside>
+      <aside class="sitemap-aside">
         <h4 class="sitemap-side-title">Global Offices</h4>
         <div class="sitemap-side">
           <div class="sitemap-side-item">
