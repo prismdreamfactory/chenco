@@ -46,6 +46,7 @@
   a {
     color: #fff;
     text-transform: uppercase;
+    font-weight: 400;
   }
   a.close-modal {
     top: 30.5px;
@@ -55,6 +56,18 @@
     border: 2px solid #fff;
     border-radius: 50%;
     opacity: 0.5;
+
+    @include media('<tablet') {
+      position: fixed;
+      top: 5.5px;
+      right: 13.5px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @include media('<tablet') {
+    height: auto;
   }
 }
 
@@ -66,6 +79,10 @@
   grid-column-gap: 2rem;
   grid-row-gap: 1rem;
   margin: 0 auto;
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team__modal-left {
