@@ -31,14 +31,13 @@ $username_label = $is_email_login_enabled ? __('Email or username', 'cuarlf') : 
   <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
     <div class="panel panel-primary panel-border top">
       <div class="panel-heading">
-        <span class="panel-title fs-lg"><i class="fa fa-sign-in"></i> <?php _e('Login', 'cuarlf'); ?></span>
+        <span class="panel-title fs-lg"> <?php _e('Login', 'cuarlf'); ?></span>
       </div>
 
       <div class="panel-body">
         <div class="form-group">
           <label for="username" class="sr-only"><?php echo $username_label; ?></label>
           <div class="input-group mb-sm mt-md">
-            <span class="input-group-addon"><i class="fa fa-user"></i></span>
             <input class="form-control" type="text" name="username" id="username"
               placeholder="<?php echo esc_attr($username_label); ?>" value="<?php echo esc_attr($current_username); ?>">
           </div>
@@ -47,7 +46,6 @@ $username_label = $is_email_login_enabled ? __('Email or username', 'cuarlf') : 
         <div class="form-group">
           <label for="pwd" class="sr-only"><?php _e('Password', 'cuarlf'); ?></label>
           <div class="input-group mb-lg">
-            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
             <input class="form-control" type="password" name="pwd" id="pwd"
               placeholder="<?php esc_attr_e('Password', 'cuarlf'); ?>" value="">
           </div>

@@ -27,14 +27,14 @@ $current_user = get_userdata(get_current_user_id());
 
 <div class="page-heading">
 
-  <div class="cuar-title media-heading text-primary"><?php echo $current_user->display_name; ?>
-    <small> - Profile</small>
-  </div>
-  <?php $this->print_submit_button(__('Submit', 'cuar')); ?>
+  <h1><?php echo $current_user->display_name; ?>
+    <small> - Edit Account</small>
+  </h1>
 
 </div>
 
 <?php $this->print_account_fields(); ?>
 
+<?php $this->print_submit_button(__('Submit', 'cuar')); ?>
 
 <?php $this->print_form_footer(); ?>

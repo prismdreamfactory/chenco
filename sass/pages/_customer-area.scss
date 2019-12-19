@@ -52,6 +52,7 @@
     left: 0;
     width: 100%;
     padding: 1rem;
+    min-height: 80vh;
   }
 }
 
@@ -145,13 +146,22 @@
 }
 
 .investor__mobile {
-  background: $aegean;
-  color: #fff;
+  background: $offwhite;
   display: none;
   padding: 1rem;
 
+  a {
+    color: $dark !important;
+  }
+
   @include media('<=tablet') {
     display: block;
+  }
+}
+
+.investor__header {
+  @include media('<=tablet') {
+    display: none;
   }
 }
 
@@ -182,7 +192,9 @@
   }
 }
 
-.menu-toggle {
+.menu-toggle,
+#site-navigation.toggled .menu {
+  border-bottom: 5px solid #fff !important;
 }
 
 .pagination {
@@ -215,4 +227,54 @@
       color: $darkgrey;
     }
   }
+}
+
+.help-block {
+  display: block;
+  font-family: $sans;
+}
+
+.panel-heading {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: $aegean;
+}
+
+.panel-body {
+  font-family: $sans;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  input {
+    min-width: 300px;
+
+    &[type='checkbox'] {
+      min-width: 0;
+    }
+  }
+  .submit-container {
+    margin-top: 2rem;
+
+    input {
+      background-color: $aegean;
+    }
+  }
+}
+
+.alert {
+  position: relative;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  background: $orange;
+  color: #fff;
+}
+
+body.customer-area-active
+  #cuar-js-content-container
+  .customer-account
+  .cuar-field.cuar-readonly-field {
+  border: none;
 }
