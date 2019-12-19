@@ -47,6 +47,15 @@
     color: #fff;
     text-transform: uppercase;
   }
+  a.close-modal {
+    top: 30.5px;
+    right: 30.5px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
 }
 
 .team__modal {
