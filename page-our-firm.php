@@ -29,19 +29,19 @@ get_header(); ?>
     <div class="tabs tabs--firm">
       <div class="container">
         <ul class="tabs-nav">
-          <li class="tab active" data-tab="1">
+          <li class="tab active" data-tab="1" data-tab-name="firm">
             <img src="/wp-content/uploads/2019/12/noun_firm_2274591.png" class="tab__icon" />
             <span>Our Firm</span>
           </li>
-          <li class="tab tab--alt" data-tab="2">
+          <li class="tab tab--alt" data-tab="2" data-tab-name="edge">
             <img src="/wp-content/uploads/2019/12/noun_performance_1650786.png" class="tab__icon" />
             <span>Our Edge</span>
           </li>
-          <li class="tab tab--alt" data-tab="3">
+          <li class="tab tab--alt" data-tab="3" data-tab-name="funds">
             <img src="/wp-content/uploads/2019/12/noun_funds_232470.png" class="tab__icon" />
             <span>Our Funds</span>
           </li>
-          <li class="tab tab--alt" data-tab="4">
+          <li class="tab tab--alt" data-tab="4" data-tab-name="businesses">
             <img src="/wp-content/uploads/2019/12/noun_business-to-business_2343503.png" class="tab__icon" />
             <span>Our Businesses</span>
           </li>
