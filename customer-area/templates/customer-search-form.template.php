@@ -25,12 +25,10 @@
 
   <?php $this->print_form_header(); ?>
 
-
-
   <?php do_action('cuar/search/before_form_fields'); ?>
 
   <div class="form-group">
-    <label for="pwd" class="control-label"><?php _e('Query', 'cuarse'); ?></label>
+    <label for="pwd" class="control-label"><?php _e('Document Name', 'cuarse'); ?></label>
 
     <div class="control-container">
       <input type="text" name="cuar_query" id="cuar_query" class="form-control"
