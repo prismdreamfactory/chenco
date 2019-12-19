@@ -130,3 +130,94 @@ function custom_rewrite_basic()
   add_rewrite_rule('investor-portal/files/my-files/', 'customer-area/files/my-files/index.php', 'top');
 }
 add_action('init', 'custom_rewrite_basic');
+
+/**
+ * Hook into investor navigation link to open modal
+ */
+add_filter('nav_menu_link_attributes', 'menu_atts', 10, 3);
+function menu_atts($atts, $item, $args)
+{
+  // The ID of the target menu item
+  $menu_target = 937;
+
+  // inspect $item
+  if ($item->ID == $menu_target) {
+    $atts['rel'] = 'modal:open';
+    $atts['data-name'] = 'login';
+  }
+  return $atts;
+}
+
+// add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
+// function add_login_logout_link($items, $args)
+// {
+//   if ($args->theme_location == 'secondary') {
+//     ob_start();
+//     wp_loginout('customer-area');
+//     $loginoutlink = ob_get_contents();
+//     ob_end_clean();
+//     $investorloginoutlink = preg_replace('/(<a href=".*")>(Log .*>)/', '$1 class="login-link">Investor $2', $loginoutlink);
+//     $items .= '<li>' . $investorloginoutlink . '</li>';
+//   }
+//   return $items;
+// }
+
+
+if (!is_admin()) {
+
+  /**
+   * filter menu items to replace login link with logout link when user is logged in
+   * if Login with Ajax is installed, use it for the login link
+   * @param string $item_output
+   * @param WP_Post $item
+   * @return string
+   */
+  add_filter('walker_nav_menu_start_el', function ($item_output, $item) {
+    if ($item->type === 'custom' && strpos($item->url, 'wp-login.php') !== false) {
+      if (is_user_logged_in()) {
+        $item_output = sprintf('<a href="%s">Logout</a>', wp_logout_url(get_permalink()));
+      } else {
+        if (class_exists('LoginWithAjax')) {
+          $item_output = sprintf('<a class="login-link" href="%s">%s</a>', esc_url(wp_login_url(get_permalink())), esc_html($item->title));
+          add_action('wp_print_footer_scripts', 'example_load_lwa_login_template');
+        } else {
+          $item_output = sprintf('<a href="%s">%s</a>', wp_login_url(get_permalink()), esc_html($item->title));
+        }
+      }
+    }
+
+    return $item_output;
+  }, 10, 2);
+}
+
+/**
+ * load the Login with Ajax modal script for the menu link
+ * called from wp_print_footer_scripts
+ */
+function example_load_lwa_login_template()
+{
+  $script = \LoginWithAjax::shortcode([
+    'template'      => 'login',
+    'profile_link'  => false,
+    'registration'  => false,
+  ]);
+
+  // strip extraneous whitespace to reduce size
+  $script = preg_replace('#^\s*#m', '', $script);
+
+  echo $script;
+}
+
+
+add_filter('if_menu_conditions', 'wpb_new_menu_conditions');
+function wpb_new_menu_conditions($conditions)
+{
+  $conditions[] = array(
+    'name'    =>  'If it is Custom Post Type archive', // name of the condition
+    'condition' =>  function ($item) {          // callback - must return TRUE or FALSE
+      return is_post_type_archive();
+    }
+  );
+
+  return $conditions;
+}
