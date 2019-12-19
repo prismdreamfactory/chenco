@@ -212,7 +212,10 @@ select {
   height: 35px;
 }
 
-.lwa,
-.lwa.login-modal {
+.lwa {
+  margin: 0;
+}
+
+.login-modal {
   display: none;
 }
