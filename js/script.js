@@ -11,6 +11,17 @@ function debounced(delay, fn) {
   };
 }
 
+function getParameterByName(name) {
+  return (
+    decodeURIComponent(
+      (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [
+        ,
+        ''
+      ])[1].replace(/\+/g, '%20')
+    ) || null
+  );
+}
+
 ($ => {
   const $window = $(window);
   const $page = $('#page');
@@ -55,7 +66,11 @@ function debounced(delay, fn) {
   };
 
   const initTabs = () => {
-    if ($('.tabs').length) {
+    // get url parameter to select active tab
+    const activeTab = getParameterByName('tab');
+    const $tabs = $('.tabs');
+
+    if ($tabs.length) {
       $('[data-tab]').on('click', function(e) {
         $(this)
           .addClass('active')
@@ -84,6 +99,8 @@ function debounced(delay, fn) {
         }
       });
     }
+
+    $('[data-tab-name=' + activeTab + ']').trigger('click');
 
     // $('[data-tab=2]').trigger('click');
   };
