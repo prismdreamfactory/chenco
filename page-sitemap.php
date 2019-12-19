@@ -18,7 +18,7 @@ get_header(); ?>
                    */
                   do_action('generate_before_main_content'); ?>
 
-    <div class="container sitemap">
+    <div class="sitemap-main">
 
       <h1 class="heading">Sitemap</h1>
 
