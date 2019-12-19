@@ -7,8 +7,8 @@
 ?>
 <div class="lwa login-modal"><?php //class must be here, and if this is a template, class name should be that of template directory 
                               ?>
-  <a href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>"
-    class="lwa-links-modal"><?php esc_html_e('Log In', 'login-with-ajax') ?></a>
+  <?php /*<a href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>"
+  class="lwa-links-modal"><?php esc_html_e('Log In', 'login-with-ajax') ?></a> */ ?>
   <?php
   //FOOTER - once the page loads, this will be moved automatically to the bottom of the document.
   ?>

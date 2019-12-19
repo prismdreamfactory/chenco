@@ -134,19 +134,19 @@ add_action('init', 'custom_rewrite_basic');
 /**
  * Hook into investor navigation link to open modal
  */
-add_filter('nav_menu_link_attributes', 'menu_atts', 10, 3);
-function menu_atts($atts, $item, $args)
-{
-  // The ID of the target menu item
-  $menu_target = 937;
+// add_filter('nav_menu_link_attributes', 'menu_atts', 10, 3);
+// function menu_atts($atts, $item, $args)
+// {
+//   // The ID of the target menu item
+//   $menu_target = 937;
 
-  // inspect $item
-  if ($item->ID == $menu_target) {
-    $atts['rel'] = 'modal:open';
-    $atts['data-name'] = 'login';
-  }
-  return $atts;
-}
+//   // inspect $item
+//   if ($item->ID == $menu_target) {
+//     $atts['rel'] = 'modal:open';
+//     $atts['data-name'] = 'login';
+//   }
+//   return $atts;
+// }
 
 // add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
 // function add_login_logout_link($items, $args)
@@ -162,6 +162,10 @@ function menu_atts($atts, $item, $args)
 //   return $items;
 // }
 
+
+/**
+ * https: //snippets.webaware.com.au/snippets/wordpress-login-link-with-a-popup-form/
+ */
 
 if (!is_admin()) {
 
@@ -179,7 +183,7 @@ if (!is_admin()) {
       } else {
         if (class_exists('LoginWithAjax')) {
           $item_output = sprintf('<a class="login-link" href="%s">%s</a>', esc_url(wp_login_url(get_permalink())), esc_html($item->title));
-          add_action('wp_print_footer_scripts', 'example_load_lwa_login_template');
+          add_action('wp_print_footer_scripts', 'load_lwa_login_template');
         } else {
           $item_output = sprintf('<a href="%s">%s</a>', wp_login_url(get_permalink()), esc_html($item->title));
         }
@@ -194,7 +198,7 @@ if (!is_admin()) {
  * load the Login with Ajax modal script for the menu link
  * called from wp_print_footer_scripts
  */
-function example_load_lwa_login_template()
+function load_lwa_login_template()
 {
   $script = \LoginWithAjax::shortcode([
     'template'      => 'login',
