@@ -68,7 +68,7 @@ $attachment_count = count($attachments);
             <td class="cuar-size"><?php cuar_the_attached_file_size($post->ID, $file); ?></td>
             <td class="cuar-actions">
               <a href="<?php cuar_the_attached_file_link($post->ID, $file); ?>"
-                title="<?php esc_attr_e('Get file', 'cuar'); ?>" class="btn btn-default btn-sm">
+                title="<?php esc_attr_e('Get file', 'cuar'); ?>" class="btn">
                 <span class="fa fa-download"></span>&nbsp;<?php _e('Download', 'cuar'); ?>
               </a>
             </td>
