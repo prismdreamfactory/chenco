@@ -1,4 +1,5 @@
 <?php
+
 /** Template version: 3.1.0
  *
  * -= 3.1.0 =-
@@ -23,14 +24,37 @@
 <?php
 $title_popup = sprintf(__('Uploaded on %s', 'cuar'), get_the_date());
 $file_count = cuar_get_the_attached_file_count($post->ID);
+
+$attachments = cuar_get_the_attached_files($post->ID);
+$attachment_count = count($attachments);
+/* only one file per download */
+$file = current($attachments);
 ?>
 
 <tr>
+  <th><?= get_the_date('d M Y') ?></th>
+  <td><?= cuar_get_the_owner(); ?></td>
+  <td>Investment</td>
+  <td><?php the_title(); ?></td>
+  <td><?php the_field('document_type') ?></td>
+  <td class="cuar-actions">
+    <a href="<?php cuar_the_attached_file_link($post->ID, $file); ?>" title="<?php esc_attr_e('Get file', 'cuar'); ?>"
+      class="btn__download">
+      <span class="fa fa-download"></span>
+    </a>
+  </td>
+</tr>
+
+
+<?php /*
+<tr>
     <td class="cuar-title">
         <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr($title_popup); ?>"><?php the_title(); ?></a>
-    </td>
-    <td class="text-right cuar-extra-info">
-        <?php do_action('cuar/templates/block/item/extra-info'); ?>
-        <span class="label label-default cuar-file-count"><?php echo sprintf(_n('%1$s file', '%1$s files', $file_count, 'cuar'), $file_count); ?></span>
-    </td>
+</td>
+<td class="text-right cuar-extra-info">
+  <?php do_action('cuar/templates/block/item/extra-info'); ?>
+  <span
+    class="label label-default cuar-file-count"><?php echo sprintf(_n('%1$s file', '%1$s files', $file_count, 'cuar'), $file_count); ?></span>
+</td>
 </tr>
+*/ ?>
