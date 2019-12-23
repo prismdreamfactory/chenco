@@ -276,18 +276,18 @@
 
 #site-navigation {
   .menu-toggle {
-    background-color: $aegean;
-    color: #fff;
+    background-color: $light;
+    color: $dark;
   }
 
   &.toggled {
     .menu,
     .sub-menu {
-      background: $aegean;
+      background: $light;
     }
 
     a {
-      color: #fff !important;
+      color: $dark !important;
       opacity: 1 !important;
       font-family: $sans;
       font-weight: 700;

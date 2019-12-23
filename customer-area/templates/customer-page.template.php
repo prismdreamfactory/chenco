@@ -43,14 +43,17 @@ foreach ($sidebar_attributes as $att => $v) {
 
   <div class="investor__container <?php echo $content_class; ?>">
     <?php /* $this->print_page_sidebar($args, $shortcode_content); */ ?>
+
+    <?php if (is_user_logged_in()) : ?>
     <aside class="investor__sidebar">
       <?php
-                                  wp_nav_menu(array(
-                                    'theme_location' => 'cuar_main_menu',
-                                    'container_class' => 'investor__nav'
-                                  ));
-      ?>
+        wp_nav_menu(array(
+          'theme_location' => 'cuar_main_menu',
+          'container_class' => 'investor__nav'
+        ));
+        ?>
     </aside>
+    <?php endif; ?>
 
     <div class="investor__main <?php echo $content_class; ?>">
       <?php $this->print_page_content($args, $shortcode_content); ?>
