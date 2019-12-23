@@ -2,7 +2,7 @@
   display: grid;
   min-height: 2000px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 36% auto 32%;
+  grid-template-rows: 36% auto auto;
   grid-template-areas:
     'top top top'
     'mid-left mid-right mid-right'
