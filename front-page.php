@@ -28,7 +28,7 @@ get_header(); ?>
       <?php if (have_rows('hero')) : ?>
       <?php while (have_rows('hero')) : the_row(); ?>
 
-      <div class="front-hero" style="background-image: url(<?php the_sub_field('image'); ?>;">
+      <div class="front-hero" style="background-image: url(<?php the_sub_field('image'); ?>);">
         <div class="front-hero-content">
 
           <div class="container">
