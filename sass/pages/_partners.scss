@@ -130,7 +130,7 @@
 }
 
 .operators {
-  background: $light;
+  background: #f2f2f2;
 
   .slick-list {
     // padding: 0 50px;
@@ -158,8 +158,10 @@
 
   .slick-prev {
     left: 10px;
+    z-index: 5;
   }
   .slick-next {
     right: 10px;
+    z-index: 5;
   }
 }
