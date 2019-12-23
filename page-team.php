@@ -25,7 +25,7 @@ get_header(); ?>
     <?php endwhile; ?>
 
     <div class="team container">
-      <div class="team-header">
+      <div class="page__header">
         <h1>Our Team</h1>
         <span class="front-line"></span>
         <p><?php the_content(); ?></p>

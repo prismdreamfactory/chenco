@@ -20,9 +20,15 @@ get_header(); ?>
 
     <div class="container">
 
-      <h1>Portfolio</h1>
+      <?php while (have_posts()) : the_post(); ?>
 
-      <p>Our portfolio spans eighteen states</p>
+      <div class="page__header">
+        <h1><?php the_title(); ?></h1>
+        <span class="front-line"></span>
+        <p><?php the_content(); ?></p>
+      </div>
+
+      <?php endwhile; ?>
 
     </div>
 

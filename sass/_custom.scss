@@ -42,6 +42,19 @@ body {
   padding: 0;
 }
 
+.page__header {
+  max-width: 75vh;
+
+  h1 {
+    font-family: $serif;
+    color: $aegean;
+  }
+
+  @include media('<=tablet') {
+    max-width: 100%;
+  }
+}
+
 .navigation-branding .site-logo img {
   height: 80px;
   padding: 0;

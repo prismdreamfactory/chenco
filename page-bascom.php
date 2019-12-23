@@ -3,7 +3,7 @@
 /* Template Name: Bascom Operators Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -20,39 +20,39 @@ get_header(); ?>
 
     <?php while (have_posts()) : the_post(); ?>
 
-      <div class="grid-container"></div>
+    <div class="grid-container"></div>
 
     <?php endwhile; ?>
-    
+
     <div class="bascom container">
-        <div class="team-header">
-            <h1 class="heading"><?php the_title(); ?></h1>
-            <p><?php the_content(); ?></p>
-            <div class="bascom-filter-container">
-              <p>Filter by</p>
-              <input placeholder="Sector: All" >
-              <input  placeholder="Option" >
-              <input  placeholder="Option" >
-            </div>
+      <div class="page__header">
+        <h1 class="heading"><?php the_title(); ?></h1>
+        <p><?php the_content(); ?></p>
+        <div class="bascom-filter-container">
+          <p>Filter by</p>
+          <input placeholder="Sector: All">
+          <input placeholder="Option">
+          <input placeholder="Option">
         </div>
-        <div class="bascom-container">
-          
-          <?php while (have_rows('bascom')) : the_row(); ?>
-            <div class="bascom__item">
-                <img src="<?php the_sub_field('image'); ?>" alt="img"/>
-                <h3><?php the_sub_field('company'); ?></h3>
-                <div class="bascom__item__description">
-                  <p><?php the_sub_field('description'); ?></p>
-                    <div class="bascom-info">
-                        <p><?php the_sub_field('address'); ?></p>
-                        <p>+<?php the_sub_field('phone'); ?></p>
-                        <p><?php the_sub_field('website'); ?></p>
-                    </div>
-                </div>
+      </div>
+      <div class="bascom-container">
+
+        <?php while (have_rows('bascom')) : the_row(); ?>
+        <div class="bascom__item">
+          <img src="<?php the_sub_field('image'); ?>" alt="img" />
+          <h3><?php the_sub_field('company'); ?></h3>
+          <div class="bascom__item__description">
+            <p><?php the_sub_field('description'); ?></p>
+            <div class="bascom-info">
+              <p><?php the_sub_field('address'); ?></p>
+              <p>+<?php the_sub_field('phone'); ?></p>
+              <p><?php the_sub_field('website'); ?></p>
             </div>
-            <?php endwhile; ?>
-            
+          </div>
         </div>
+        <?php endwhile; ?>
+
+      </div>
     </div>
 
     <?php

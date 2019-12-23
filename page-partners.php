@@ -3,7 +3,7 @@
 /* Template Name: Partners Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -22,16 +22,19 @@ get_header(); ?>
 
     <div class="partners">
       <div class="container">
-        <h1 class="heading blue"><?php the_title(); ?></h1>
-
-        <p><?php the_content(); ?></p>
+        <div class="page__header">
+          <h1 class="heading"><?php the_title(); ?></h1>
+          <p><?php the_content(); ?></p>
+        </div>
       </div>
 
       <div class="tabs tabs--alt">
         <div class="container">
           <ul class="tabs-nav">
-          <?php while (have_rows('company')) : the_row(); ?>
-            <li class="tab tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1): ?>active<?php endif; ?>" data-tab="<?php echo get_row_index(); ?>">
+            <?php while (have_rows('company')) : the_row(); ?>
+            <li
+              class="tab tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
+              data-tab="<?php echo get_row_index(); ?>">
               <div class="tab__image-wrap"><img src="<?php the_sub_field('logo'); ?>"
                   class="tab__logo tab__logo-<?php echo get_row_index(); ?>" /></div>
             </li>
@@ -41,7 +44,8 @@ get_header(); ?>
 
         <div class="tab-container">
           <?php while (have_rows('company')) : the_row(); ?>
-          <div class="tab-content <?php if (get_row_index() == 1): ?>active<?php endif; ?>" data-content="<?php echo get_row_index(); ?>">
+          <div class="tab-content <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
+            data-content="<?php echo get_row_index(); ?>">
             <div class="container">
               <section class="partners__section">
                 <div class="partners__section--top">
@@ -59,8 +63,8 @@ get_header(); ?>
                     </div>
                   </div>
                 </div>
-                
-                <?php if (get_row_index() == 1): ?>
+
+                <?php if (get_row_index() == 1) : ?>
                 <div class="partners__section--bottom">
                   <h2>Bascom Operators</h2>
                   <div class="slick operators">
