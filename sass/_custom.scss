@@ -19,6 +19,10 @@
   }
 }
 
+.post {
+  padding: 2rem;
+}
+
 body {
   background: #fff;
 }
@@ -97,6 +101,10 @@ section {
   background-color: $aegean;
   color: #fff;
   cursor: pointer;
+
+  &.alt {
+    background-color: #000;
+  }
 }
 
 a,
@@ -109,10 +117,6 @@ a:visited {
 .entry-title {
   font-family: $serif;
   color: $aegean;
-}
-
-article.post {
-  min-height: 70vh;
 }
 
 date {

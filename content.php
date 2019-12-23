@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying posts within the loop.
  */
@@ -7,8 +8,8 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata('article'); ?>>
-	<div class="inside-article">
-		<?php
+  <div class="inside-article">
+    <?php
         /**
          * generate_before_content hook.
          *
@@ -19,27 +20,26 @@ if (!defined('ABSPATH')) {
         do_action('generate_before_content');
         ?>
 
-		<header class="entry-header">
-			<?php
+    <header class="entry-header">
+      <?php
             /**
              * generate_before_entry_title hook.
              *
              * @since 0.1
              */
             do_action('generate_before_entry_title');
-
-            the_date(); ?>
-
-			<span class="front-line"></span>
-
-			<?php
-
-            the_title(sprintf('<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
             ?>
 
-			<a href="" class='btn'>Read More</a>
+      <h4 class="heading"><?php the_date(); ?></h4>
 
-            <!-- /*
+      <?php
+
+            the_title(sprintf('<h2 class="entry-title post__title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
+            ?>
+
+      <a href="<?php the_permalink(); ?>" class='btn alt'>Read More</a>
+
+      <!-- /*
              * generate_after_entry_title hook.
              *
              * @since 0.1
@@ -47,9 +47,9 @@ if (!defined('ABSPATH')) {
              * @hooked generate_post_meta - 10
              */
             // do_action('generate_after_entry_title'); -->
-		</header><!-- .entry-header -->
+    </header><!-- .entry-header -->
 
-		<?php
+    <?php
         /**
          * generate_after_entry_header hook.
          *
@@ -61,24 +61,24 @@ if (!defined('ABSPATH')) {
 
         if (generate_show_excerpt()) : ?>
 
-			<div class="entry-summary" itemprop="text">
-				<!-- <?php the_excerpt(); ?> -->
-			</div><!-- .entry-summary -->
+    <div class="entry-summary" itemprop="text">
+      <!-- <?php the_excerpt(); ?> -->
+    </div><!-- .entry-summary -->
 
-		<?php else : ?>
+    <?php else : ?>
 
-			<div class="entry-content" itemprop="text">
-				<?php
+    <div class="entry-content" itemprop="text">
+      <?php
                 the_content();
 
                 wp_link_pages(array(
-                    'before' => '<div class="page-links">'.__('Pages:', 'generatepress'),
+                    'before' => '<div class="page-links">' . __('Pages:', 'generatepress'),
                     'after' => '</div>',
                 ));
                 ?>
-			</div><!-- .entry-content -->
+    </div><!-- .entry-content -->
 
-		<?php endif;
+    <?php endif;
 
         // /**
         //  * generate_after_entry_content hook.
@@ -96,5 +96,5 @@ if (!defined('ABSPATH')) {
         //  */
         // do_action( 'generate_after_content' );
         ?>
-	</div><!-- .inside-article -->
+  </div><!-- .inside-article -->
 </article><!-- #post-## -->

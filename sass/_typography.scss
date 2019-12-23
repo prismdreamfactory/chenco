@@ -46,6 +46,16 @@ h2 {
   }
 }
 
+.post__title {
+  a {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-family: $serif;
+    text-transform: none;
+    letter-spacing: $letter-spacing;
+  }
+}
+
 h4 {
   font-family: $sans;
 
