@@ -32,7 +32,7 @@ $file = current($attachments);
 ?>
 
 <tr>
-  <th><?= get_the_date('d M Y') ?></th>
+  <td><?= get_the_date('d M Y') ?></td>
   <td><?= cuar_get_the_owner(); ?></td>
   <td>Investment</td>
   <td><?php the_title(); ?></td>
