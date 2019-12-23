@@ -106,6 +106,21 @@ a:visited {
   }
 }
 
+.entry-title {
+  font-family: $serif;
+  color: $aegean;
+}
+
+article.post {
+  min-height: 70vh;
+}
+
+date {
+  margin-top: 2rem;
+  display: inline-block;
+  font-family: $sans;
+}
+
 .link {
   display: flex;
   align-items: center;

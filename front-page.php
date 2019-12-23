@@ -27,31 +27,38 @@ get_header(); ?>
     <div class="front">
       <div class="front-hero">
         <div class="front-hero-content">
-          <h1>Proven Real Estate <br /> Expertise.</h1>
-          <h3>We've built a strong track record of value <br />creation for our investors</h3>
-          <a class="btn">Learn More</a>
+
+          <?php if (have_rows('hero')) : ?>
+          <?php while (have_rows('hero')) : the_row(); ?>
+
+          <h1><?php the_sub_field('heading'); ?></h1>
+          <h3><?php the_sub_field('text'); ?></h3>
+          <a href="<?php the_sub_field('link'); ?>" class="btn">Learn More</a>
+
+          <?php endwhile; ?>
+          <?php endif; ?>
         </div>
       </div>
       <div class="front-summary">
         <div class="front-summary-text">
+
           <h4 class="heading alt">Value-Based Investing</h4>
           <h1>
-            Over 29 years, we have enhanced our portfolio
-            value through proven asset management and
-            operational expertise
+            <?php the_field('tagline'); ?>
           </h1>
+
           <div class="front-summary-link">
             <div class="link">
-              <a href="https://www.google.com">Value-Based Investing</a>
+              <a href="/our-firm">Value-Based Investing</a>
             </div>
             <div class="link">
-              <a href="https://www.google.com">Reliabe Partners</a>
+              <a href="/partners">Reliabe Partners</a>
             </div>
             <div class="link">
-              <a href="https://www.google.com">Investment Portfolio</a>
+              <a href="/portfolio">Investment Portfolio</a>
             </div>
             <div class="link">
-              <a href="https://www.google.com">A Balanced Team</a>
+              <a href="/team">A Balanced Team</a>
             </div>
           </div>
         </div>
@@ -59,37 +66,58 @@ get_header(); ?>
 
       <div class="front-news">
         <h4 class="heading">Corporate Releases</h4>
+
+        <?php
+        $loop = new WP_Query(
+          array(
+            'taxonomy' => 'corporate-releases',
+            'posts_per_page' => 2,
+          )
+        );
+        while ($loop->have_posts()) : $loop->the_post(); ?>
+
         <div class="front-news-item">
-          <p>March 22, 2019</p>
-          <a href="https://www.google.com">Chenco Holdings Expands Into Korea Through Formation of CHK Partners Co.,
-            Ltd.</a>
+          <p><?php the_date(); ?></p>
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </div>
         <span></span>
+
+        <?php endwhile; ?>
+
+
+        <h4 class="heading">Recent News</h4>
+
+        <?php
+        $loop = new WP_Query(
+          array(
+            'posts_per_page' => 2,
+          )
+        );
+        while ($loop->have_posts()) : $loop->the_post(); ?>
+
         <div class="front-news-item">
-          <p>March 22, 2019</p>
-          <a href="https://www.google.com">Chenco Holdings Commences Fundraising For Pacific Rim Properties XVIII</a>
+          <p><?php the_date(); ?></p>
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </div>
         <span></span>
-        <h4>Recent News</h4>
-        <span class="front-line"></span>
-        <div class="front-news-item">
-          <p>March 22, 2019</p>
-          <a href="https://www.google.com">Chenco Holdings Commences Fundraising For Pacific Rim Properties XVIII</a>
-        </div>
-        <span></span>
-        <div class="front-news-item">
-          <p>March 22, 2019</p>
-          <a href="https://www.google.com">Chenco Holdings Commences Fundraising For Pacific Rim Properties XVIII</a>
-        </div>
+
+        <?php endwhile; ?>
       </div>
 
-      <div class="front-project-image"></div>
+      <?php if (have_rows('project')) : ?>
+      <?php while (have_rows('project')) : the_row(); ?>
+
+      <div class="front-project-image" style="background-image: url(<?php the_sub_field('image'); ?>"></div>
       <div class="front-project">
+
         <h4 class="heading">Project Profile</h4>
-        <h1>Reno Daybreak: Addressing the "Missing Middle" With A New, Inspired, And Attainable Master Planned
-          Community.</h1>
-        <a class="btn" href="https://www.google.com">Learn More</a>
+        <h1><?php the_sub_field('tagline'); ?></h1>
+        <a class="btn" href="<?php the_sub_field('link'); ?>">Learn More</a>
+
       </div>
+      <?php endwhile; ?>
+      <?php endif; ?>
+
     </div>
 
 
