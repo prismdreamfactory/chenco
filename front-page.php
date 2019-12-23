@@ -25,27 +25,33 @@ get_header(); ?>
     do_action('generate_before_main_content'); ?>
 
     <div class="front">
-      <div class="front-hero">
+      <?php if (have_rows('hero')) : ?>
+      <?php while (have_rows('hero')) : the_row(); ?>
+
+      <div class="front-hero" style="background-image: url(<?php the_sub_field('image'); ?>;">
         <div class="front-hero-content">
 
-          <?php if (have_rows('hero')) : ?>
-          <?php while (have_rows('hero')) : the_row(); ?>
+          <div class="container">
 
-          <h1><?php the_sub_field('heading'); ?></h1>
-          <h3><?php the_sub_field('text'); ?></h3>
-          <a href="<?php the_sub_field('link'); ?>" class="btn">Learn More</a>
+            <h1><?php the_sub_field('heading'); ?></h1>
+            <h3><?php the_sub_field('text'); ?></h3>
+            <a href="<?php the_sub_field('link'); ?>" class="btn">Learn More</a>
 
-          <?php endwhile; ?>
-          <?php endif; ?>
+          </div>
+
         </div>
       </div>
+      <?php endwhile; ?>
+      <?php endif; ?>
+
+
       <div class="front-summary">
         <div class="front-summary-text">
 
           <h4 class="heading alt">Value-Based Investing</h4>
-          <h1>
+          <h2>
             <?php the_field('tagline'); ?>
-          </h1>
+          </h2>
 
           <div class="front-summary-link">
             <div class="link">
@@ -65,43 +71,47 @@ get_header(); ?>
       </div>
 
       <div class="front-news">
-        <h4 class="heading">Corporate Releases</h4>
 
-        <?php
-        $loop = new WP_Query(
-          array(
-            'taxonomy' => 'corporate-releases',
-            'posts_per_page' => 2,
-          )
-        );
-        while ($loop->have_posts()) : $loop->the_post(); ?>
+        <div class="front__news__section">
+          <h4 class="heading">Corporate Releases</h4>
+          <?php
+          $loop = new WP_Query(
+            array(
+              // 'taxonomy' => 'corporate-releases',
+              'posts_per_page' => 2,
+            )
+          );
+          while ($loop->have_posts()) : $loop->the_post(); ?>
+          <div class="front-news-item">
+            <p><?php the_date(); ?></p>
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          </div>
+          <span></span>
 
-        <div class="front-news-item">
-          <p><?php the_date(); ?></p>
-          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          <?php endwhile; ?>
+          <?php wp_reset_query(); ?>
         </div>
-        <span></span>
 
-        <?php endwhile; ?>
+        <div class="front__news__section">
+          <h4 class="heading">Recent News</h4>
+          <?php
+          $loop = new WP_Query(
+            array(
+              'posts_per_page' => 2,
+            )
+          );
+          while ($loop->have_posts()) : $loop->the_post(); ?>
 
+          <div class="front-news-item">
+            <p><?php the_date(); ?></p>
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          </div>
+          <span></span>
 
-        <h4 class="heading">Recent News</h4>
-
-        <?php
-        $loop = new WP_Query(
-          array(
-            'posts_per_page' => 2,
-          )
-        );
-        while ($loop->have_posts()) : $loop->the_post(); ?>
-
-        <div class="front-news-item">
-          <p><?php the_date(); ?></p>
-          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          <?php endwhile; ?>
+          <?php wp_reset_query(); ?>
         </div>
-        <span></span>
 
-        <?php endwhile; ?>
       </div>
 
       <?php if (have_rows('project')) : ?>
@@ -111,7 +121,7 @@ get_header(); ?>
       <div class="front-project">
 
         <h4 class="heading">Project Profile</h4>
-        <h1><?php the_sub_field('tagline'); ?></h1>
+        <h2><?php the_sub_field('text'); ?></h2>
         <a class="btn" href="<?php the_sub_field('link'); ?>">Learn More</a>
 
       </div>

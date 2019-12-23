@@ -26,7 +26,6 @@ a {
 }
 
 h1 {
-  font-family: $sans;
   font-weight: 700;
   letter-spacing: $letter-spacing;
 
@@ -47,6 +46,15 @@ h2 {
   }
 }
 
+h4 {
+  font-family: $sans;
+
+  &.heading {
+    font-weight: 700;
+    letter-spacing: $letter-spacing;
+  }
+}
+
 .sans {
   font-family: $sans;
 }
@@ -57,7 +65,7 @@ h2 {
 
 .heading {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding-bottom: 1rem;
   display: flex;
   justify-content: center;

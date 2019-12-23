@@ -278,6 +278,8 @@
   .menu-toggle {
     background-color: $light;
     color: $dark;
+
+    border-bottom: 0 !important;
   }
 
   &.toggled {
